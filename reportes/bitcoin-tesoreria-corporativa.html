@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Paper: Bitcoin como Activo de Tesorería Corporativa | Capital Duro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .wp-page { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+        .wp-title { font-size: 2.5rem; margin-bottom: 1rem; }
+        .wp-subtitle { font-size: 1.25rem; color: var(--medium-gray); margin-bottom: 3rem; }
+        .wp-section { margin: 3rem 0; }
+        .wp-toc { background: var(--light-gray); padding: 2rem; border-radius: 8px; margin: 2rem 0; }
+        .wp-toc ul { list-style: none; padding: 0; }
+        .wp-toc li { padding: 0.5rem 0; border-bottom: 1px solid var(--border-gray); }
+        .wp-toc li:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <div class="wp-page">
+        <span class="badge" style="background: var(--gold-accent);">WHITE PAPER</span>
+        <h1 class="wp-title">Bitcoin como Activo de Tesorería Corporativa</h1>
+        <p class="wp-subtitle">Guía Completa para CFOs y Comités de Tesorería en México</p>
+        
+        <div style="border-top: 2px solid var(--gold-accent); padding-top: 2rem; margin-top: 2rem;">
+            <p><strong>Autores:</strong> Equipo de Investigación Capital Duro</p>
+            <p><strong>Editor:</strong> Boyd Cohen, PhD (ArcadiaB, EGADE Business School)</p>
+            <p><strong>Fecha:</strong> Febrero 2026</p>
+            <p><strong>Versión:</strong> 1.0</p>
+        </div>
+
+        <div class="wp-toc">
+            <h3 style="margin-top: 0;">Tabla de Contenidos</h3>
+            <ul>
+                <li><a href="#resumen">Resumen Ejecutivo</a></li>
+                <li><a href="#problema">El Problema: Debasement Monetario Acelerado</a></li>
+                <li><a href="#bitcoin">Bitcoin: Características como Activo de Tesorería</a></li>
+                <li><a href="#casos">Casos de Uso: 18 Empresas Públicas Globales</a></li>
+                <li><a href="#implementacion">Framework de Implementación</a></li>
+                <li><a href="#riesgos">Gestión de Riesgos</a></li>
+                <li><a href="#regulatorio">Marco Regulatorio Mexicano</a></li>
+                <li><a href="#conclusiones">Conclusiones y Recomendaciones</a></li>
+            </ul>
+        </div>
+
+        <div id="resumen" class="wp-section">
+            <h2>Resumen Ejecutivo</h2>
+            <p>Este white paper examina Bitcoin como activo de tesorería corporativa en el contexto mexicano, analizando las razones estructurales por las cuales 18 empresas públicas globales han adoptado esta estrategia desde 2020, y proporcionando un framework accionable para CFOs considerando implementación.</p>
+
+            <div style="background: var(--light-gray); padding: 2rem; border-left: 4px solid var(--gold-accent); margin: 2rem 0;">
+                <h4 style="margin-top: 0;">Hallazgos Clave:</h4>
+                <ul style="line-height: 1.8;">
+                    <li>Expansión monetaria M2 global promedio de 10% anual (2020-2025) erosiona sistemáticamente efectivo corporativo</li>
+                    <li>Bitcoin ha demostrado retornos reales superiores a alternativas tradicionales sobre horizontes 4+ años</li>
+                    <li>Marco regulatorio mexicano (Ley Fintech, ASOFOM) es habilitante para adopción institucional</li>
+                    <li>Asignaciones conservadoras (1-10% de balance) ofrecen protección contra debasement sin transformar modelo de negocio</li>
+                </ul>
+            </div>
+
+            <p><strong>Recomendación:</strong> Empresas mexicanas con balance >$100M USD y horizonte de tesorería 4+ años deben evaluar Bitcoin como componente de estrategia de capital duro, comenzando con asignación 1-5% y escalando basado en educación de stakeholders y performance.</p>
+        </div>
+
+        <div id="problema" class="wp-section">
+            <h2>El Problema: Debasement Monetario Acelerado</h2>
+            
+            <h3>1.1 Expansión Monetaria Global 2020-2026</h3>
+            <p>La respuesta a COVID-19 aceleró tendencias de expansión monetaria que llevaban décadas:</p>
+
+            <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: var(--navy-primary); color: white;">
+                        <th style="padding: 1rem;">Región</th>
+                        <th style="padding: 1rem;">Expansión M2 (2020-2025)</th>
+                        <th style="padding: 1rem;">Inflación Acumulada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;">USA</td>
+                        <td style="padding: 1rem;">+42%</td>
+                        <td style="padding: 1rem;">+23%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;">Eurozona</td>
+                        <td style="padding: 1rem;">+38%</td>
+                        <td style="padding: 1rem;">+18%</td>
+                    </tr>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;">México</td>
+                        <td style="padding: 1rem;">+51%</td>
+                        <td style="padding: 1rem;">+28%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;">Japón</td>
+                        <td style="padding: 1rem;">+27%</td>
+                        <td style="padding: 1rem;">+8%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Implicación para tesorería corporativa:</strong> Una empresa mexicana con MXN 500M en balance de efectivo al inicio de 2020 perdió ~28% de poder de compra real a febrero 2026, incluso earning yields de 6-8% en CETES.</p>
+
+            <h3>1.2 Yields Reales Negativos en Instrumentos Tradicionales</h3>
+            <p>Comparación de retornos reales (nominal - inflación) 2020-2026:</p>
+
+            <ul style="line-height: 1.8; margin: 2rem 0;">
+                <li><strong>Efectivo (MXN):</strong> 0% - 28% = <span style="color: #ef4444; font-weight: bold;">-28% real</span></li>
+                <li><strong>CETES 28 días:</strong> 7% promedio - 28% = <span style="color: #ef4444; font-weight: bold;">-21% real</span></li>
+                <li><strong>BONOS M 10 años:</strong> 8.5% - 28% = <span style="color: #ef4444; font-weight: bold;">-19.5% real</span></li>
+                <li><strong>USD cash:</strong> 0% - 23% = <span style="color: #ef4444; font-weight: bold;">-23% real</span></li>
+                <li><strong>US Treasuries 2Y:</strong> 2.5% - 23% = <span style="color: #ef4444; font-weight: bold;">-20.5% real</span></li>
+            </ul>
+
+            <p><strong>Conclusión:</strong> Instrumentos tradicionales de tesorería han producido retornos reales <strong>profundamente negativos</strong> durante período de expansión monetaria acelerada.</p>
+
+            <h3>1.3 Alternativas Consideradas por Treasurers</h3>
+            <p>CFOs evaluando protección contra debasement típicamente consideran:</p>
+
+            <table style="width: 100%; margin: 2rem 0; border-collapse: collapse; font-size: 0.95rem;">
+                <thead>
+                    <tr style="background: var(--navy-primary); color: white;">
+                        <th style="padding: 0.875rem;">Activo</th>
+                        <th style="padding: 0.875rem;">Retorno Real 2020-26</th>
+                        <th style="padding: 0.875rem;">Ventajas</th>
+                        <th style="padding: 0.875rem;">Desventajas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 0.875rem;"><strong>Oro</strong></td>
+                        <td style="padding: 0.875rem;">+34%</td>
+                        <td style="padding: 0.875rem;">5,000 años track record</td>
+                        <td style="padding: 0.875rem;">Difícil custodiar, baja portabilidad</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.875rem;"><strong>Real estate</strong></td>
+                        <td style="padding: 0.875rem;">+18-25%</td>
+                        <td style="padding: 0.875rem;">Tangible, genera renta</td>
+                        <td style="padding: 0.875rem;">Iliquidez, management overhead</td>
+                    </tr>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 0.875rem;"><strong>Equities (S&P 500)</strong></td>
+                        <td style="padding: 0.875rem;">+78%</td>
+                        <td style="padding: 0.875rem;">Alta liquidez, dividendos</td>
+                        <td style="padding: 0.875rem;">Volatilidad, riesgo de negocio</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.875rem;"><strong>Bitcoin</strong></td>
+                        <td style="padding: 0.875rem;">+643%</td>
+                        <td style="padding: 0.875rem;">Escasez absoluta, portabilidad perfecta</td>
+                        <td style="padding: 0.875rem;">Volatilidad extrema, asset class nuevo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="bitcoin" class="wp-section">
+            <h2>Bitcoin: Características como Activo de Tesorería</h2>
+
+            <h3>2.1 Las 6 Propiedades del Buen Dinero</h3>
+            <p>Bitcoin cumple y supera las características aristotélicas del dinero sano:</p>
+
+            <ol style="line-height: 1.8; margin: 2rem 0;">
+                <li><strong>Durabilidad:</strong> Red Bitcoin lleva 15+ años operando 24/7 sin downtime. Código open-source verificable.</li>
+                <li><strong>Portabilidad:</strong> $1 mil millones = 12 palabras. Superior a oro por órdenes de magnitud.</li>
+                <li><strong>Divisibilidad:</strong> 1 BTC = 100,000,000 satoshis. Permite transacciones micro ($0.001 USD).</li>
+                <li><strong>Fungibilidad:</strong> 1 BTC = 1 BTC globalmente. (Nota: Preocupaciones sobre taint análysis en casos edge.)</li>
+                <li><strong>Escasez:</strong> 21 millones máximo, hardcoded. Stock-to-Flow ratio 120+ años (vs. oro 66 años).</li>
+                <li><strong>Verificabilidad:</strong> Cualquiera puede verificar supply total ejecutando un full node (~500GB).</li>
+            </ol>
+
+            <h3>2.2 Stock-to-Flow: Métrica de Escasez</h3>
+            <p>Stock-to-Flow mide cuántos años tomaría duplicar el supply actual al ritmo de producción actual:</p>
+
+            <div style="background: white; border: 2px solid var(--border-gray); padding: 2rem; margin: 2rem 0; border-radius: 8px;">
+                <p><strong>Fórmula:</strong> SF = Stock existente / Flow anual</p>
+                <ul style="margin: 1.5rem 0; line-height: 1.8;">
+                    <li><strong>Oro:</strong> ~200,000 toneladas stock / ~3,000 ton/año = SF 66</li>
+                    <li><strong>Plata:</strong> SF ~22</li>
+                    <li><strong>Bitcoin (2026):</strong> 19.6M BTC / ~164,000 BTC/año = SF 120</li>
+                    <li><strong>Bitcoin (2028 post-halving):</strong> SF 240+</li>
+                    <li><strong>Bitcoin (2140):</strong> SF infinito (emisión = 0)</li>
+                </ul>
+                <p style="margin-bottom: 0;"><strong>Conclusión:</strong> Bitcoin converge hacia escasez absoluta. Ningún otro activo conocido tiene esta propiedad.</p>
+            </div>
+
+            <h3>2.3 Sin Counterparty Risk</h3>
+            <p>Bitcoin es el <strong>único activo bearer</strong> que puede custodiar digitalmente sin depender de terceros:</p>
+
+            <ul style="line-height: 1.8; margin: 1.5rem 0;">
+                <li>Efectivo fiat: Depende de banco central no devaluar</li>
+                <li>Bonos: Depende de emisor pagar</li>
+                <li>Oro ETFs: Depende de custodio (COMEX, bancos)</li>
+                <li>Bitcoin self-custody: <strong>Cero contrapartes</strong> — control absoluto</li>
+            </ul>
+
+            <p>Para instituciones, esto permite eliminar riesgo de congelamiento de cuentas, bail-ins, o confiscación gubernamental.</p>
+        </div>
+
+        <div id="casos" class="wp-section">
+            <h2>Casos de Uso: 18 Empresas Públicas Globales</h2>
+
+            <p>Desde 2020, 18 empresas públicas han adoptado Bitcoin como activo de tesorería corporativa. Las tres más significativas:</p>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 2rem 0;">
+                <div class="card" style="padding: 1.5rem;">
+                    <h4 style="margin-top: 0;">MicroStrategy (USA)</h4>
+                    <p><strong>Holdings:</strong> 528,000 BTC | <strong>Valor:</strong> ~$21B USD</p>
+                    <p><strong>ROI stock desde anuncio:</strong> +1,989%</p>
+                    <p style="margin-bottom: 0;"><a href="/casos-estudio/microstrategy.html">Ver caso completo →</a></p>
+                </div>
+
+                <div class="card" style="padding: 1.5rem;">
+                    <h4 style="margin-top: 0;">Metaplanet (Japón)</h4>
+                    <p><strong>Holdings:</strong> 1,762 BTC | <strong>Valor:</strong> ~$70M USD</p>
+                    <p><strong>ROI stock:</strong> +580% en 8 meses</p>
+                    <p style="margin-bottom: 0;"><a href="/casos-estudio/metaplanet.html">Ver caso completo →</a></p>
+                </div>
+
+                <div class="card" style="padding: 1.5rem;">
+                    <h4 style="margin-top: 0;">El Salvador (País)</h4>
+                    <p><strong>Holdings:</strong> 5,800 BTC | <strong>Valor:</strong> ~$232M USD</p>
+                    <p><strong>Status:</strong> Primer país en adoptar BTC como curso legal</p>
+                    <p style="margin-bottom: 0;"><a href="/casos-estudio/el-salvador.html">Ver caso completo →</a></p>
+                </div>
+            </div>
+
+            <p><strong>Patrón común:</strong> Ninguna empresa ha revertido estrategia. Todas continúan acumulando.</p>
+        </div>
+
+        <div id="implementacion" class="wp-section">
+            <h2>Framework de Implementación</h2>
+
+            <h3>5.1 Fase 1: Educación (3-6 meses)</h3>
+            <ol style="line-height: 1.8; margin: 1.5rem 0;">
+                <li>Presentaciones trimestrales a board sobre Bitcoin basics</li>
+                <li>Traer expertos externos (ArcadiaB, consultores especializados)</li>
+                <li>Revisar casos: MicroStrategy, Metaplanet, otros relevantes</li>
+                <li>Análisis comparativo: BTC vs. oro, real estate, equities</li>
+            </ol>
+
+            <h3>5.2 Fase 2: Piloto Conservador (Mes 6-12)</h3>
+            <ol style="line-height: 1.8; margin: 1.5rem 0;">
+                <li><strong>Asignación inicial:</strong> 1-3% de balance total</li>
+                <li><strong>Estrategia:</strong> Dollar-cost averaging sobre 6-12 meses (no lump sum)</li>
+                <li><strong>Custody:</strong> Institucional (Coinbase Custody, Fidelity Digital Assets) o multisig colaborativo</li>
+                <li><strong>Reporting:</strong> Mark-to-market trimestral, transparencia con stakeholders</li>
+            </ol>
+
+            <h3>5.3 Fase 3: Escalar (Año 2+)</h3>
+            <p>Basado en performance y comfort del board:</p>
+            <ul style="line-height: 1.8; margin: 1.5rem 0;">
+                <li>Aumentar asignación a 5-10% gradualmente</li>
+                <li>Considerar estructuras de financiamiento (bonos convertibles, equity raises) solo si convicción es alta</li>
+                <li>Evaluar opciones de yield (lending institucional, Lightning liquidity)</li>
+            </ul>
+        </div>
+
+        <div id="riesgos" class="wp-section">
+            <h2>Gestión de Riesgos</h2>
+
+            <h3>6.1 Riesgo de Precio (Volatilidad)</h3>
+            <p><strong>Realidad:</strong> Bitcoin ha experimentado drawdowns de 50-85% históricamente.</p>
+            <p><strong>Mitigación:</strong></p>
+            <ul style="line-height: 1.8;">
+                <li>Solo asignar capital con horizonte 4+ años</li>
+                <li>Dollar-cost averaging reduce riesgo de mal timing</li>
+                <li>Comunicar expectativas realistas a stakeholders</li>
+                <li>No usar leverage excesivo (máximo 1.5x como MicroStrategy)</li>
+            </ul>
+
+            <h3>6.2 Riesgo Operacional (Custody)</h3>
+            <p><strong>Riesgo:</strong> Pérdida de llaves privadas = pérdida permanente de BTC.</p>
+            <p><strong>Mitigación:</strong></p>
+            <ul style="line-height: 1.8;">
+                <li>Custody institucional certificado (Coinbase, Fidelity)</li>
+                <li>O multisig 2-of-3 o 3-of-5 con procedimientos robustos</li>
+                <li>Auditorías anuales de holdings (proof-of-reserves)</li>
+                <li>Plan de sucesión documentado</li>
+            </ul>
+
+            <h3>6.3 Riesgo Regulatorio</h3>
+            <p><strong>Escenario:</strong> Gobierno podría prohibir tenencia institucional o aumentar impuestos.</p>
+            <p><strong>Mitigación México:</strong></p>
+            <ul style="line-height: 1.8;">
+                <li>Ley Fintech (2018) reconoce Bitcoin legalmente</li>
+                <li>ASOFOM certifica instituciones que operan Bitcoin</li>
+                <li>No existe prohibición actual</li>
+                <li>Diversificar custody geográficamente si holdings >$100M</li>
+            </ul>
+        </div>
+
+        <div id="regulatorio" class="wp-section">
+            <h2>Marco Regulatorio Mexicano</h2>
+
+            <h3>7.1 Ley Fintech (2018)</h3>
+            <p>México fue <strong>pionero en América Latina</strong> regulando activos virtuales:</p>
+            <ul style="line-height: 1.8; margin: 1.5rem 0;">
+                <li>Reconoce Bitcoin como "activo virtual"</li>
+                <li>Permite instituciones financieras operar con Bitcoin bajo certificación</li>
+                <li>Requiere registro con autoridades (CNBV, Banxico)</li>
+            </ul>
+
+            <h3>7.2 ASOFOM: Certificación para Bitcoin Lending</h3>
+            <p><strong>ArcadiaB</strong> es la única ASOFOM certificada para préstamos respaldados por Bitcoin en México.</p>
+            <p>Esto valida que marco regulatorio <strong>permite operaciones institucionales</strong> con Bitcoin.</p>
+
+            <h3>7.3 Tratamiento Fiscal (SAT)</h3>
+            <ul style="line-height: 1.8; margin: 1.5rem 0;">
+                <li>Bitcoin es activo reportable</li>
+                <li>Ganancias son tributables como ganancia de capital</li>
+                <li>No hay impuesto a la tenencia (solo al realizar ganancia)</li>
+                <li>Empresas deben marcar a mercado trimestralmente (fair value accounting)</li>
+            </ul>
+        </div>
+
+        <div id="conclusiones" class="wp-section">
+            <h2>Conclusiones y Recomendaciones</h2>
+
+            <h3>Para CFOs Mexicanos:</h3>
+
+            <div class="card" style="padding: 2rem; background: var(--light-gray); margin: 2rem 0;">
+                <h4 style="margin-top: 0;">✅ Bitcoin DEBE ser considerado si:</h4>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Balance total >$100M USD</li>
+                    <li>Horizonte de tesorería 4+ años</li>
+                    <li>Board tiene appetite para asset class nuevo</li>
+                    <li>Empresa puede tolerar volatilidad de corto plazo</li>
+                </ul>
+            </div>
+
+            <div class="card" style="padding: 2rem; border-left: 4px solid #ef4444; margin: 2rem 0;">
+                <h4 style="margin-top: 0;">⚠️ Bitcoin NO es apropiado si:</h4>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Capital necesario en <2 años</li>
+                    <li>Board ultra-conservador sin educación previa</li>
+                    <li>Empresa no puede tolerar drawdowns 50%+</li>
+                    <li>No existe expertise interno o acceso a consultores</li>
+                </ul>
+            </div>
+
+            <h3>Recomendación Final:</h3>
+            <p style="background: linear-gradient(135deg, var(--navy-primary) 0%, #0f1419 100%); color: white; padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <strong>Para empresas mexicanas con balance >$100M USD:</strong> Iniciar proceso educativo AHORA. Asignar 1-5% en piloto conservador durante 2026. Evaluar performance over un ciclo completo (4 años). Bitcoin no es para todos, pero para empresas con horizonte largo y convicción sobre debasement monetario continuado, es la herramienta más efectiva de preservación de capital disponible.
+            </p>
+
+            <p style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-gray);">
+                <strong>¿Necesita consultoría para implementar estrategia Bitcoin treasury?</strong><br>
+                <a href="https://www.kapitalex.com/#/register?ref=FDQEXS1WD6LZ4IQ" style="color: var(--gold-accent); font-weight: 600;">
+                    ArcadiaB ofrece servicios especializados →
+                </a>
+            </p>
+        </div>
+
+        <hr style="margin: 4rem 0;">
+
+        <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px;">
+            <h4 style="margin-top: 0;">Sobre Capital Duro</h4>
+            <p style="margin-bottom: 0;">
+                Capital Duro es una iniciativa de investigación independiente dedicada a educar instituciones mexicanas sobre estrategias de capital resistente. Este white paper fue producido por nuestro equipo de investigación bajo la dirección editorial de Boyd Cohen, PhD.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="/" class="button outline">← Volver al Inicio</a>
+            <a href="/reportes.html" class="button primary" style="margin-left: 1rem;">Ver Todos los Reportes</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding: 2rem 0; text-align: center;">
+                <p>© 2026 Capital Duro</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
