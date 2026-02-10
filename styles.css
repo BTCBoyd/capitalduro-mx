@@ -161,28 +161,32 @@ a:hover {
     position: relative;
 }
 
-.nav-dropdown:hover .dropdown-menu,
-.dropdown-menu:hover {
+/* Create invisible hover bridge - padding on dropdown extends hover area up */
+.nav-dropdown:hover .dropdown-menu {
     display: block;
-    opacity: 1;
-    visibility: visible;
 }
 
 .dropdown-menu {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
+    display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 0.5rem); /* Small gap for visual separation */
     left: 0;
     background: var(--navy-primary);
     min-width: 220px;
     padding: 0.75rem 0;
-    padding-top: 1.25rem; /* Invisible hover bridge */
-    margin-top: 0; /* No gap - CRITICAL FIX */
     border-top: 2px solid var(--gold-accent);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+/* CRITICAL: Add invisible bridge between nav and dropdown */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -0.75rem; /* Bridge the gap */
+    left: 0;
+    right: 0;
+    height: 0.75rem; /* Match the gap */
+    background: transparent;
 }
 
 .dropdown-menu a {
