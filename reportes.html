@@ -161,13 +161,44 @@
 
     <script>
         // Newsletter form handler
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = this.querySelector('input[type="email"]').value;
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
             
-            // TODO: Integrate with ConvertKit
-            alert('¡Gracias por suscribirse! Recibirá nuestros reportes pronto.');
-            this.reset();
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            
+            try {
+                const response = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        tag: 'newsletter'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('¡Gracias por suscribirse! Recibirá nuestros reportes pronto.');
+                    this.reset();
+                } else {
+                    alert('Error al suscribirse. Por favor intente de nuevo.');
+                    console.error('Subscription error:', data);
+                }
+            } catch (error) {
+                alert('Error de conexión. Por favor intente de nuevo.');
+                console.error('Network error:', error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
         });
     </script>
 </body>
