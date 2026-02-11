@@ -672,3 +672,242 @@ section {
         flex-direction: column;
     }
 }
+
+/* ==========================================
+   VISUAL HIERARCHY IMPROVEMENTS
+   ========================================== */
+
+/* Better section spacing and alternating backgrounds */
+section {
+    margin: 4rem 0;
+    padding: 4rem 0;
+}
+
+section:nth-child(even) {
+    background: var(--light-gray);
+}
+
+/* Featured Report - Stand Out More */
+.featured-report {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    margin: 3rem 0;
+}
+
+.featured-report h2,
+.featured-report h3,
+.featured-report h4 {
+    color: white;
+}
+
+.featured-report p {
+    color: rgba(255,255,255,0.9);
+}
+
+.featured-report .button {
+    background: var(--gold-accent);
+    color: var(--navy-primary);
+}
+
+.featured-report .button:hover {
+    background: #e8c547;
+    transform: translateY(-2px);
+}
+
+/* Primary CTAs - More Prominent */
+.button.primary {
+    background: #f7931a;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(247, 147, 26, 0.3);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.button.primary:hover {
+    background: #e88316;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(247, 147, 26, 0.4);
+}
+
+/* Analysis Cards - Better Visual Appeal */
+.analysis-card {
+    border-left: 4px solid #f7931a;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.analysis-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ==========================================
+   MARKET DATA WIDGET
+   ========================================== */
+
+.market-data-widget {
+    background: var(--navy-primary);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.market-data-widget .data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.market-data-widget .data-row:last-of-type {
+    border-bottom: none;
+}
+
+.market-data-widget .label {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.market-data-widget .value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    font-family: var(--font-mono);
+}
+
+.market-data-widget .change {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.market-data-widget .change.positive {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.market-data-widget .change.negative {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.market-data-widget .update-time {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   NEWSLETTER GATE
+   ========================================== */
+
+.article-gate {
+    background: white;
+    border: 2px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 3rem 0;
+}
+
+.article-gate h2 {
+    margin-bottom: 0.5rem;
+}
+
+.article-gate .meta {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.article-gate .preview {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.article-gate .preview ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.article-gate .access-gate {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.article-gate .access-gate h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.article-gate .access-gate p {
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.5rem;
+}
+
+.article-gate .access-gate input[type="email"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.article-gate .access-gate button {
+    background: var(--gold-accent);
+    color: var(--navy-primary);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.article-gate .access-gate button:hover {
+    background: #e8c547;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   RESPONSIVE IMPROVEMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+    .button.primary {
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+    }
+    
+    .market-data-widget .value {
+        font-size: 1.1rem;
+    }
+    
+    .featured-report {
+        padding: 2rem;
+    }
+}

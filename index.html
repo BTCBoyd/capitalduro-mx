@@ -84,6 +84,88 @@
     </section>
 
     <!-- Featured Whitepaper -->
+
+    <!-- Market Data Widget -->
+    <section style="padding: 3rem 0;">
+        <div class="container" style="max-width: 1000px;">
+            <div class="market-data-widget">
+                <div class="data-row">
+                    <span class="label">Bitcoin (BTC/MXN):</span>
+                    <span class="value" id="btc-price">Cargando...</span>
+                    <span class="change" id="btc-change">--</span>
+                </div>
+                <div class="data-row">
+                    <span class="label">Oro (XAU/USD):</span>
+                    <span class="value" id="gold-price">Cargando...</span>
+                    <span class="change" id="gold-change">--</span>
+                </div>
+                <div class="data-row">
+                    <span class="label">USD/MXN:</span>
+                    <span class="value" id="usdmxn">Cargando...</span>
+                    <span class="change" id="usdmxn-change">--</span>
+                </div>
+                <p class="update-time">Última actualización: <span id="last-update">--</span></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        async function updateMarketData() {
+            try {
+                // Fetch Bitcoin price in MXN
+                const btcResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=mxn&include_24hr_change=true');
+                const btcData = await btcResponse.json();
+                
+                // Fetch Gold price in USD
+                const goldResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd&include_24hr_change=true');
+                const goldData = await goldResponse.json();
+                
+                // Fetch USD/MXN
+                const fxResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=mxn&include_24hr_change=true');
+                const fxData = await fxResponse.json();
+                
+                // Update Bitcoin
+                const btcPrice = btcData.bitcoin.mxn;
+                const btcChange = btcData.bitcoin.mxn_24h_change;
+                document.getElementById('btc-price').textContent = `$${btcPrice.toLocaleString('es-MX', {maximumFractionDigits: 0})}`;
+                const btcChangeEl = document.getElementById('btc-change');
+                btcChangeEl.textContent = `${btcChange > 0 ? '+' : ''}${btcChange.toFixed(1)}%`;
+                btcChangeEl.className = `change ${btcChange >= 0 ? 'positive' : 'negative'}`;
+                
+                // Update Gold
+                const goldPrice = goldData['pax-gold'].usd;
+                const goldChange = goldData['pax-gold'].usd_24h_change;
+                document.getElementById('gold-price').textContent = `$${goldPrice.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+                const goldChangeEl = document.getElementById('gold-change');
+                goldChangeEl.textContent = `${goldChange > 0 ? '+' : ''}${goldChange.toFixed(1)}%`;
+                goldChangeEl.className = `change ${goldChange >= 0 ? 'positive' : 'negative'}`;
+                
+                // Update USD/MXN (using Tether as proxy)
+                const usdmxn = fxData.tether.mxn;
+                const usdmxnChange = fxData.tether.mxn_24h_change;
+                document.getElementById('usdmxn').textContent = `$${usdmxn.toFixed(2)}`;
+                const usdmxnChangeEl = document.getElementById('usdmxn-change');
+                usdmxnChangeEl.textContent = `${usdmxnChange > 0 ? '+' : ''}${usdmxnChange.toFixed(2)}%`;
+                usdmxnChangeEl.className = `change ${usdmxnChange >= 0 ? 'positive' : 'negative'}`;
+                
+                // Update timestamp
+                const now = new Date();
+                document.getElementById('last-update').textContent = now.toLocaleTimeString('es-MX', {hour: '2-digit', minute: '2-digit'});
+                
+            } catch (error) {
+                console.error('Error fetching market data:', error);
+                document.getElementById('btc-price').textContent = 'Error';
+                document.getElementById('gold-price').textContent = 'Error';
+                document.getElementById('usdmxn').textContent = 'Error';
+            }
+        }
+        
+        // Update on load
+        updateMarketData();
+        
+        // Update every minute
+        setInterval(updateMarketData, 60000);
+    </script>
     <section style="background: var(--light-gray); padding: 5rem 0;">
         <div class="container">
             <div class="section-header">
