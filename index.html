@@ -455,14 +455,28 @@
         <div style="background: white; max-width: 500px; width: 90%; padding: 3rem 2rem; border-radius: 8px; position: relative;">
             <button onclick="hideReportModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--medium-gray);">&times;</button>
             
-            <h2 style="font-family: var(--font-heading); margin-bottom: 1rem; color: var(--navy-primary);">Acceso Exclusivo</h2>
+            <h2 style="font-family: var(--font-heading); margin-bottom: 1rem; color: var(--navy-primary);">Seleccione su Reporte</h2>
             <p style="color: var(--medium-gray); margin-bottom: 2rem;">
-                Este reporte de 42 páginas está disponible para ejecutivos y family offices.
+                Reportes institucionales exclusivos de 28-42 páginas
             </p>
+            
+            <div style="margin-bottom: 2rem;">
+                <label style="display: block; padding: 1rem; border: 2px solid var(--border-gray); border-radius: 8px; margin-bottom: 1rem; cursor: pointer;">
+                    <input type="radio" name="report" value="marco-estrategico" checked style="margin-right: 0.5rem;">
+                    <strong>Marco Estratégico de Capital Duro</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--medium-gray);">42 páginas | Family offices mexicanas | Estrategia completa</span>
+                </label>
+                
+                <label style="display: block; padding: 1rem; border: 2px solid var(--border-gray); border-radius: 8px; cursor: pointer;">
+                    <input type="radio" name="report" value="oro-vs-bitcoin" style="margin-right: 0.5rem;">
+                    <strong>Oro vs. Bitcoin: Análisis Cuantitativo</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--medium-gray);">28 páginas | Comparación objetiva | Performance histórico</span>
+                </label>
+            </div>
             
             <form id="reportForm" onsubmit="submitReportForm(event)" style="display: flex; flex-direction: column; gap: 1rem;">
                 <input type="email" id="reportEmail" required placeholder="correo@empresa.com" style="padding: 1rem; border: 2px solid var(--border-gray); border-radius: 4px; font-size: 1rem;">
-                <button type="submit" class="button primary" style="width: 100%; border: none; cursor: pointer;">Enviar Reporte por Email</button>
+                <button type="submit" class="button primary" style="width: 100%; border: none; cursor: pointer;">Acceder al Reporte</button>
             </form>
             
             <p style="font-size: 0.9rem; color: var(--medium-gray); margin-top: 1rem; text-align: center;">
@@ -483,10 +497,17 @@
         function submitReportForm(event) {
             event.preventDefault();
             const email = document.getElementById('reportEmail').value;
+            const selectedReport = document.querySelector('input[name="report"]:checked').value;
+            
+            // Determine which report to show
+            let reportUrl = '/reporte-marco-estrategico.html';
+            if (selectedReport === 'oro-vs-bitcoin') {
+                reportUrl = '/reporte-oro-vs-bitcoin.html';
+            }
             
             // For now, just redirect to the report (in future, this would send email via backend)
             alert('¡Gracias! Redirigiendo al reporte...');
-            window.location.href = '/reporte-marco-estrategico.html';
+            window.location.href = reportUrl;
             hideReportModal();
         }
         
