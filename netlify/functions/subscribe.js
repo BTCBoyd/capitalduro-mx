@@ -80,8 +80,6 @@ exports.handler = async function(event, context) {
     const response = tagResponse;
     const data = await tagResponse.json();
 
-    const data = await response.json();
-
     if (!response.ok) {
       console.error('ConvertKit API error:', data);
       return {
