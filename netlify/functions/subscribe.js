@@ -1,8 +1,13 @@
 // Netlify Function: ConvertKit subscription handler
-// Handles both newsletter signups and report downloads with proper segmentation
+// Uses ConvertKit Forms API (more reliable than Tags API)
 
-const CONVERTKIT_API_SECRET = process.env.CONVERTKIT_API_SECRET;
-const CONVERTKIT_API_URL = 'https://api.convertkit.com/v3';
+const CONVERTKIT_API_KEY = process.env.CONVERTKIT_API_SECRET;
+
+// Form IDs from ConvertKit
+const FORMS = {
+  'newsletter': '9078414',
+  'reporte-descarga': '9078422'
+};
 
 exports.handler = async function(event, context) {
   // Only allow POST requests
@@ -24,61 +29,32 @@ exports.handler = async function(event, context) {
       };
     }
 
-    if (!tag || !['newsletter', 'reporte-descarga'].includes(tag)) {
+    if (!tag || !FORMS[tag]) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Invalid tag' })
+        body: JSON.stringify({ error: 'Invalid tag. Must be newsletter or reporte-descarga' })
       };
     }
 
-    // First, add subscriber with tag using the form endpoint
-    // ConvertKit requires tag ID, so we'll use the simpler approach: add subscriber first, then tag
+    const formId = FORMS[tag];
     
-    // Step 1: Add/update subscriber
-    const subscriberResponse = await fetch(`${CONVERTKIT_API_URL}/subscribers`, {
+    console.log(`Subscribing ${email} to form ${formId} (${tag})`);
+
+    // Subscribe to ConvertKit form
+    const response = await fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        api_secret: CONVERTKIT_API_SECRET,
+        api_key: CONVERTKIT_API_KEY,
         email: email,
         first_name: firstName || ''
       })
     });
-    
-    const subscriberData = await subscriberResponse.json();
-    
-    if (!subscriberResponse.ok) {
-      console.error('ConvertKit subscriber error:', subscriberData);
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ 
-          error: 'Subscription failed',
-          details: subscriberData.message || 'Unknown error'
-        })
-      };
-    }
-    
-    const subscriberId = subscriberData.subscriber?.id;
-    
-    // Step 2: Tag the subscriber
-    const tagResponse = await fetch(`${CONVERTKIT_API_URL}/tags`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        api_secret: CONVERTKIT_API_SECRET,
-        tag: {
-          name: tag
-        },
-        email: email
-      })
-    });
-    
-    const response = tagResponse;
-    const data = await tagResponse.json();
+
+    const data = await response.json();
+    console.log('ConvertKit response:', JSON.stringify(data));
 
     if (!response.ok) {
       console.error('ConvertKit API error:', data);
@@ -86,7 +62,7 @@ exports.handler = async function(event, context) {
         statusCode: 500,
         body: JSON.stringify({ 
           error: 'Subscription failed',
-          details: data.message || 'Unknown error'
+          details: data.message || data.error || 'Unknown error'
         })
       };
     }
@@ -100,7 +76,8 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ 
         success: true,
         message: 'Successfully subscribed',
-        tag: tag
+        formId: formId,
+        segment: tag
       })
     };
 
