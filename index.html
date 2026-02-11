@@ -427,14 +427,23 @@
 
 <script>
 async function updatePricingWidget() {
+    console.log('🔄 Starting pricing widget update...');
     try {
+        console.log('📡 Fetching data from CoinGecko API...');
+        
         // Fetch all data in parallel
         const [btcDataMxn, btcDataUsd, goldData, fxData] = await Promise.all([
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=mxn&include_24hr_change=true').then(r => r.json()),
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true').then(r => r.json()),
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd&include_24hr_change=true').then(r => r.json()),
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=mxn&include_24hr_change=true').then(r => r.json())
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=mxn&include_24hr_change=true')
+                .then(r => { console.log('✅ BTC/MXN response:', r.status); return r.json(); }),
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true')
+                .then(r => { console.log('✅ BTC/USD response:', r.status); return r.json(); }),
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd&include_24hr_change=true')
+                .then(r => { console.log('✅ Gold response:', r.status); return r.json(); }),
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=mxn&include_24hr_change=true')
+                .then(r => { console.log('✅ USD/MXN response:', r.status); return r.json(); })
         ]);
+        
+        console.log('📊 Data received:', { btcDataMxn, btcDataUsd, goldData, fxData });
 
         // Extract values
         const btcMxn = btcDataMxn.bitcoin.mxn;
@@ -484,11 +493,14 @@ async function updatePricingWidget() {
         document.getElementById('pricing-last-update').textContent = 
             now.toLocaleTimeString('es-MX', {hour: '2-digit', minute: '2-digit'});
 
+        console.log('✅ Pricing widget updated successfully!');
+        
     } catch (error) {
-        console.error('Error fetching pricing data:', error);
-        document.getElementById('btc-mxn-price').textContent = 'Error';
-        document.getElementById('btc-usd-price').textContent = 'Error';
-        document.getElementById('btc-xau-price').textContent = 'Error';
+        console.error('❌ Error fetching pricing data:', error);
+        console.error('Error details:', error.message, error.stack);
+        document.getElementById('btc-mxn-price').textContent = 'Error - Ver consola';
+        document.getElementById('btc-usd-price').textContent = 'Error - Ver consola';
+        document.getElementById('btc-xau-price').textContent = 'Error - Ver consola';
     }
 }
 
@@ -501,9 +513,11 @@ function updateChangeElement(elementId, changeValue, isRef = false) {
 }
 
 // Initialize on load
+console.log('🚀 Initializing pricing widget on page load...');
 updatePricingWidget();
 
 // Update every minute
+console.log('⏰ Setting up 60-second update interval...');
 setInterval(updatePricingWidget, 60000);
 </script>
     <section style="background: var(--light-gray); padding: 5rem 0;">
