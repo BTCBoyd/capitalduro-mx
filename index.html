@@ -429,39 +429,33 @@
 async function updatePricingWidget() {
     console.log('🔄 Starting pricing widget update...');
     try {
-        console.log('📡 Fetching data from CoinGecko API...');
+        console.log('📡 Fetching data from Netlify function...');
         
-        // Fetch all data in parallel
-        const [btcDataMxn, btcDataUsd, goldData, fxData] = await Promise.all([
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=mxn&include_24hr_change=true')
-                .then(r => { console.log('✅ BTC/MXN response:', r.status); return r.json(); }),
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true')
-                .then(r => { console.log('✅ BTC/USD response:', r.status); return r.json(); }),
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd&include_24hr_change=true')
-                .then(r => { console.log('✅ Gold response:', r.status); return r.json(); }),
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=mxn&include_24hr_change=true')
-                .then(r => { console.log('✅ USD/MXN response:', r.status); return r.json(); })
-        ]);
+        // Fetch from our serverless function (bypasses CORS)
+        const response = await fetch('/.netlify/functions/pricing');
         
-        console.log('📊 Data received:', { btcDataMxn, btcDataUsd, goldData, fxData });
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('📊 Data received:', data);
 
-        // Extract values
-        const btcMxn = btcDataMxn.bitcoin.mxn;
-        const btcMxnChange = btcDataMxn.bitcoin.mxn_24h_change;
+        // Extract values (already calculated server-side)
+        const btcMxn = data.btcMxn.price;
+        const btcMxnChange = data.btcMxn.change;
         
-        const btcUsd = btcDataUsd.bitcoin.usd;
-        const btcUsdChange = btcDataUsd.bitcoin.usd_24h_change;
+        const btcUsd = data.btcUsd.price;
+        const btcUsdChange = data.btcUsd.change;
         
-        const goldUsd = goldData['pax-gold'].usd;
-        const goldChange = goldData['pax-gold'].usd_24h_change;
+        const goldUsd = data.goldUsd.price;
+        const goldChange = data.goldUsd.change;
         
-        const usdMxn = fxData.tether.mxn;
-        const usdMxnChange = fxData.tether.mxn_24h_change;
+        const usdMxn = data.usdMxn.price;
+        const usdMxnChange = data.usdMxn.change;
 
-        // Calculate BTC/XAU (Bitcoin in gold ounces)
-        const btcXau = btcUsd / goldUsd;
-        // Calculate BTC/XAU 24h change (relative movement)
-        const btcXauChange = btcUsdChange - goldChange;
+        const btcXau = data.btcXau.price;
+        const btcXauChange = data.btcXau.change;
 
         // Update BTC/MXN Card
         document.getElementById('btc-mxn-price').textContent = 
@@ -497,10 +491,10 @@ async function updatePricingWidget() {
         
     } catch (error) {
         console.error('❌ Error fetching pricing data:', error);
-        console.error('Error details:', error.message, error.stack);
-        document.getElementById('btc-mxn-price').textContent = 'Error - Ver consola';
-        document.getElementById('btc-usd-price').textContent = 'Error - Ver consola';
-        document.getElementById('btc-xau-price').textContent = 'Error - Ver consola';
+        console.error('Error details:', error.message);
+        document.getElementById('btc-mxn-price').textContent = 'Error';
+        document.getElementById('btc-usd-price').textContent = 'Error';
+        document.getElementById('btc-xau-price').textContent = 'Error';
     }
 }
 
