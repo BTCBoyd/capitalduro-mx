@@ -1268,3 +1268,41 @@ async function updatePrices() {
 updatePrices();
 setInterval(updatePrices, 60000);
 </script>
+
+<script>
+// Feed tab filtering
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.feed-tab');
+  const articles = document.querySelectorAll('.article-card');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Update active state
+      tabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      
+      const filter = this.textContent.trim().toLowerCase();
+      
+      // Show/hide articles based on filter
+      articles.forEach(article => {
+        const type = article.querySelector('.article-type');
+        if (!type) return;
+        
+        const typeText = type.textContent.trim().toLowerCase();
+        
+        if (filter === 'todo') {
+          article.style.display = 'grid';
+        } else if (filter === 'análisis' && typeText === 'análisis') {
+          article.style.display = 'grid';
+        } else if (filter === 'reportes' && typeText === 'reporte') {
+          article.style.display = 'grid';
+        } else if (filter === 'perspectivas' && typeText === 'perspectiva invitada') {
+          article.style.display = 'grid';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
