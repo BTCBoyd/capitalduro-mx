@@ -85,87 +85,424 @@
 
     <!-- Featured Whitepaper -->
 
-    <!-- Market Data Widget -->
-    <section style="padding: 3rem 0;">
-        <div class="container" style="max-width: 1000px;">
-            <div class="market-data-widget">
-                <div class="data-row">
-                    <span class="label">Bitcoin (BTC/MXN):</span>
-                    <span class="value" id="btc-price">Cargando...</span>
-                    <span class="change" id="btc-change">--</span>
+<!-- NEW PRICING WIDGET - Two-Tier Design -->
+<section style="padding: 4rem 0; background: linear-gradient(180deg, #0D0F1A 0%, #111327 100%);">
+    <div class="container" style="max-width: 1200px;">
+        
+        <!-- Header -->
+        <div class="pricing-header">
+            <div class="pricing-title-wrapper">
+                <h2 class="pricing-title">MERCADOS DE CAPITAL DURO</h2>
+                <div class="live-indicator">
+                    <span class="live-dot"></span>
+                    <span class="live-text">EN VIVO</span>
                 </div>
-                <div class="data-row">
-                    <span class="label">Oro (XAU/USD):</span>
-                    <span class="value" id="gold-price">Cargando...</span>
-                    <span class="change" id="gold-change">--</span>
-                </div>
-                <div class="data-row">
-                    <span class="label">USD/MXN:</span>
-                    <span class="value" id="usdmxn">Cargando...</span>
-                    <span class="change" id="usdmxn-change">--</span>
-                </div>
-                <p class="update-time">Última actualización: <span id="last-update">--</span></p>
             </div>
+            <p class="pricing-subtitle">Activos de oferta fija vs. monedas fiduciarias</p>
+            <div class="pricing-divider"></div>
         </div>
-    </section>
 
-    <script>
-        async function updateMarketData() {
-            try {
-                // Fetch Bitcoin price in MXN
-                const btcResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=mxn&include_24hr_change=true');
-                const btcData = await btcResponse.json();
-                
-                // Fetch Gold price in USD
-                const goldResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd&include_24hr_change=true');
-                const goldData = await goldResponse.json();
-                
-                // Fetch USD/MXN
-                const fxResponse = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=mxn&include_24hr_change=true');
-                const fxData = await fxResponse.json();
-                
-                // Update Bitcoin
-                const btcPrice = btcData.bitcoin.mxn;
-                const btcChange = btcData.bitcoin.mxn_24h_change;
-                document.getElementById('btc-price').textContent = `$${btcPrice.toLocaleString('es-MX', {maximumFractionDigits: 0})}`;
-                const btcChangeEl = document.getElementById('btc-change');
-                btcChangeEl.textContent = `${btcChange > 0 ? '+' : ''}${btcChange.toFixed(1)}%`;
-                btcChangeEl.className = `change ${btcChange >= 0 ? 'positive' : 'negative'}`;
-                
-                // Update Gold
-                const goldPrice = goldData['pax-gold'].usd;
-                const goldChange = goldData['pax-gold'].usd_24h_change;
-                document.getElementById('gold-price').textContent = `$${goldPrice.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-                const goldChangeEl = document.getElementById('gold-change');
-                goldChangeEl.textContent = `${goldChange > 0 ? '+' : ''}${goldChange.toFixed(1)}%`;
-                goldChangeEl.className = `change ${goldChange >= 0 ? 'positive' : 'negative'}`;
-                
-                // Update USD/MXN (using Tether as proxy)
-                const usdmxn = fxData.tether.mxn;
-                const usdmxnChange = fxData.tether.mxn_24h_change;
-                document.getElementById('usdmxn').textContent = `$${usdmxn.toFixed(2)}`;
-                const usdmxnChangeEl = document.getElementById('usdmxn-change');
-                usdmxnChangeEl.textContent = `${usdmxnChange > 0 ? '+' : ''}${usdmxnChange.toFixed(2)}%`;
-                usdmxnChangeEl.className = `change ${usdmxnChange >= 0 ? 'positive' : 'negative'}`;
-                
-                // Update timestamp
-                const now = new Date();
-                document.getElementById('last-update').textContent = now.toLocaleTimeString('es-MX', {hour: '2-digit', minute: '2-digit'});
-                
-            } catch (error) {
-                console.error('Error fetching market data:', error);
-                document.getElementById('btc-price').textContent = 'Error';
-                document.getElementById('gold-price').textContent = 'Error';
-                document.getElementById('usdmxn').textContent = 'Error';
-            }
-        }
+        <!-- Primary Tier: 3 Bitcoin Cards -->
+        <div class="pricing-primary-tier">
+            
+            <!-- BTC/MXN Card -->
+            <div class="btc-card" data-pair="btc-mxn">
+                <div class="card-header">
+                    <span class="card-symbol">BTC/MXN</span>
+                    <span class="card-change" id="btc-mxn-change">--</span>
+                </div>
+                <div class="card-price" id="btc-mxn-price">Cargando...</div>
+                <div class="card-description">1 BTC en pesos mexicanos</div>
+            </div>
+
+            <!-- BTC/USD Card -->
+            <div class="btc-card" data-pair="btc-usd">
+                <div class="card-header">
+                    <span class="card-symbol">BTC/USD</span>
+                    <span class="card-change" id="btc-usd-change">--</span>
+                </div>
+                <div class="card-price" id="btc-usd-price">Cargando...</div>
+                <div class="card-description">1 BTC en dólares</div>
+            </div>
+
+            <!-- BTC/XAU Card (Gold Ounces) -->
+            <div class="btc-card" data-pair="btc-xau">
+                <div class="card-header">
+                    <span class="card-symbol">BTC/XAU</span>
+                    <span class="card-change" id="btc-xau-change">--</span>
+                </div>
+                <div class="card-price" id="btc-xau-price">Cargando...</div>
+                <div class="card-description">1 BTC medido en onzas de oro</div>
+            </div>
+
+        </div>
+
+        <!-- Secondary Tier: 2 Reference Rows -->
+        <div class="pricing-secondary-tier">
+            
+            <div class="ref-row">
+                <span class="ref-symbol">XAU/USD</span>
+                <span class="ref-price" id="xau-usd-price">--</span>
+                <span class="ref-change" id="xau-usd-change">--</span>
+            </div>
+
+            <div class="ref-row">
+                <span class="ref-symbol">USD/MXN</span>
+                <span class="ref-price" id="usd-mxn-price">--</span>
+                <span class="ref-change" id="usd-mxn-change">--</span>
+            </div>
+
+        </div>
+
+        <!-- Thesis Line -->
+        <div class="pricing-thesis">
+            Bitcoin: el único activo con oferta verdaderamente fija. 21 millones. Sin excepciones.
+        </div>
+
+        <!-- Timestamp -->
+        <div class="pricing-timestamp">
+            Última actualización: <span id="pricing-last-update">--</span>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Pricing Widget Redesign - Capital Duro */
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.pricing-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(247, 147, 26, 0.85);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.live-text {
+    font-size: 0.75rem;
+    color: #10b981;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.pricing-subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1.5rem 0;
+}
+
+.pricing-divider {
+    height: 2px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, rgba(247, 147, 26, 0.5) 50%, transparent);
+}
+
+/* Primary Tier - Bitcoin Cards */
+.pricing-primary-tier {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btc-card {
+    background: linear-gradient(135deg, rgba(247, 147, 26, 0.12), rgba(247, 147, 26, 0.04));
+    border: 1px solid rgba(247, 147, 26, 0.25);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.btc-card[data-pair="btc-mxn"] {
+    animation-delay: 0s;
+}
+
+.btc-card[data-pair="btc-usd"] {
+    animation-delay: 0.05s;
+}
+
+.btc-card[data-pair="btc-xau"] {
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btc-card:hover {
+    border-color: rgba(247, 147, 26, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(247, 147, 26, 0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-symbol {
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: rgba(247, 147, 26, 0.85);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.card-change {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.card-change.positive {
+    color: #34D399;
+    background: rgba(52, 211, 153, 0.15);
+}
+
+.card-change.negative {
+    color: #F87171;
+    background: rgba(248, 113, 113, 0.15);
+}
+
+.card-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #F7F7F7;
+    margin-bottom: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.card-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* Secondary Tier - Reference Rows */
+.pricing-secondary-tier {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ref-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ref-symbol {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+}
+
+.ref-price {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    flex: 1;
+    text-align: center;
+}
+
+.ref-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+}
+
+.ref-change.positive {
+    color: #34D399;
+    background: rgba(52, 211, 153, 0.1);
+}
+
+.ref-change.negative {
+    color: #F87171;
+    background: rgba(248, 113, 113, 0.1);
+}
+
+/* Thesis Line */
+.pricing-thesis {
+    text-align: center;
+    padding: 1.25rem;
+    background: rgba(247, 147, 26, 0.04);
+    border-left: 3px solid rgba(247, 147, 26, 0.6);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+/* Timestamp */
+.pricing-timestamp {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pricing-primary-tier {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .pricing-secondary-tier {
+        grid-template-columns: 1fr;
+    }
+
+    .card-price {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .pricing-primary-tier {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-price {
+        font-size: 1.3rem;
+    }
+}
+</style>
+
+<script>
+async function updatePricingWidget() {
+    try {
+        // Fetch all data in parallel
+        const [btcDataMxn, btcDataUsd, goldData, fxData] = await Promise.all([
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=mxn&include_24hr_change=true').then(r => r.json()),
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true').then(r => r.json()),
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd&include_24hr_change=true').then(r => r.json()),
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=mxn&include_24hr_change=true').then(r => r.json())
+        ]);
+
+        // Extract values
+        const btcMxn = btcDataMxn.bitcoin.mxn;
+        const btcMxnChange = btcDataMxn.bitcoin.mxn_24h_change;
         
-        // Update on load
-        updateMarketData();
+        const btcUsd = btcDataUsd.bitcoin.usd;
+        const btcUsdChange = btcDataUsd.bitcoin.usd_24h_change;
         
-        // Update every minute
-        setInterval(updateMarketData, 60000);
-    </script>
+        const goldUsd = goldData['pax-gold'].usd;
+        const goldChange = goldData['pax-gold'].usd_24h_change;
+        
+        const usdMxn = fxData.tether.mxn;
+        const usdMxnChange = fxData.tether.mxn_24h_change;
+
+        // Calculate BTC/XAU (Bitcoin in gold ounces)
+        const btcXau = btcUsd / goldUsd;
+        // Calculate BTC/XAU 24h change (relative movement)
+        const btcXauChange = btcUsdChange - goldChange;
+
+        // Update BTC/MXN Card
+        document.getElementById('btc-mxn-price').textContent = 
+            `$${btcMxn.toLocaleString('es-MX', {maximumFractionDigits: 0})}`;
+        updateChangeElement('btc-mxn-change', btcMxnChange);
+
+        // Update BTC/USD Card
+        document.getElementById('btc-usd-price').textContent = 
+            `$${btcUsd.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+        updateChangeElement('btc-usd-change', btcUsdChange);
+
+        // Update BTC/XAU Card
+        document.getElementById('btc-xau-price').textContent = 
+            `${btcXau.toFixed(2)} oz`;
+        updateChangeElement('btc-xau-change', btcXauChange);
+
+        // Update XAU/USD Reference
+        document.getElementById('xau-usd-price').textContent = 
+            `$${goldUsd.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+        updateChangeElement('xau-usd-change', goldChange, true);
+
+        // Update USD/MXN Reference
+        document.getElementById('usd-mxn-price').textContent = 
+            `$${usdMxn.toFixed(2)}`;
+        updateChangeElement('usd-mxn-change', usdMxnChange, true);
+
+        // Update timestamp
+        const now = new Date();
+        document.getElementById('pricing-last-update').textContent = 
+            now.toLocaleTimeString('es-MX', {hour: '2-digit', minute: '2-digit'});
+
+    } catch (error) {
+        console.error('Error fetching pricing data:', error);
+        document.getElementById('btc-mxn-price').textContent = 'Error';
+        document.getElementById('btc-usd-price').textContent = 'Error';
+        document.getElementById('btc-xau-price').textContent = 'Error';
+    }
+}
+
+function updateChangeElement(elementId, changeValue, isRef = false) {
+    const el = document.getElementById(elementId);
+    const formatted = `${changeValue > 0 ? '+' : ''}${changeValue.toFixed(isRef ? 2 : 1)}%`;
+    el.textContent = formatted;
+    el.className = isRef ? 'ref-change' : 'card-change';
+    el.classList.add(changeValue >= 0 ? 'positive' : 'negative');
+}
+
+// Initialize on load
+updatePricingWidget();
+
+// Update every minute
+setInterval(updatePricingWidget, 60000);
+</script>
     <section style="background: var(--light-gray); padding: 5rem 0;">
         <div class="container">
             <div class="section-header">
