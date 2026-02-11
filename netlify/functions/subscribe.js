@@ -31,8 +31,11 @@ exports.handler = async function(event, context) {
       };
     }
 
-    // Subscribe to ConvertKit
-    const response = await fetch(`${CONVERTKIT_API_URL}/tags`, {
+    // First, add subscriber with tag using the form endpoint
+    // ConvertKit requires tag ID, so we'll use the simpler approach: add subscriber first, then tag
+    
+    // Step 1: Add/update subscriber
+    const subscriberResponse = await fetch(`${CONVERTKIT_API_URL}/subscribers`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,10 +43,42 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({
         api_secret: CONVERTKIT_API_SECRET,
         email: email,
-        first_name: firstName || '',
-        tags: [tag]
+        first_name: firstName || ''
       })
     });
+    
+    const subscriberData = await subscriberResponse.json();
+    
+    if (!subscriberResponse.ok) {
+      console.error('ConvertKit subscriber error:', subscriberData);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ 
+          error: 'Subscription failed',
+          details: subscriberData.message || 'Unknown error'
+        })
+      };
+    }
+    
+    const subscriberId = subscriberData.subscriber?.id;
+    
+    // Step 2: Tag the subscriber
+    const tagResponse = await fetch(`${CONVERTKIT_API_URL}/tags`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        api_secret: CONVERTKIT_API_SECRET,
+        tag: {
+          name: tag
+        },
+        email: email
+      })
+    });
+    
+    const response = tagResponse;
+    const data = await tagResponse.json();
 
     const data = await response.json();
 
