@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Custodia Bitcoin - Capital Duro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="/" style="text-decoration: none;">
+                    <div class="logo">CAPITAL DURO</div>
+                    <div class="tagline">Estrategias de Capital Resistente</div>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/analisis.html">Análisis</a></li>
+                <li><a href="/estudios-caso.html">Casos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section style="padding: 5rem 0;">
+        <div class="container-narrow">
+            <span class="badge" style="background: var(--gold-accent); margin-bottom: 1rem;">GUÍA TÉCNICA</span>
+            <h1 style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 2rem;">
+                Custodia Bitcoin Institucional
+            </h1>
+            <p class="lead" style="font-size: 1.25rem; color: var(--medium-gray); line-height: 1.8; margin-bottom: 3rem;">
+                Cómo proteger tenencias corporativas de Bitcoin: desde auto-custodia hasta soluciones multi-institucionales. Guía práctica para CFOs y tesoreros.
+            </p>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border-gray);">
+
+            <h2 style="margin-top: 3rem; font-family: var(--font-heading);">1. El Espectro de Custodia</h2>
+
+            <p>Para tesorerías corporativas, la custodia Bitcoin no es binaria (self-custody vs. custodian). Es un espectro con trade-offs claros:</p>
+
+            <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: var(--navy-primary); color: white;">
+                        <th style="padding: 1rem;">Modelo</th>
+                        <th style="padding: 1rem;">Control</th>
+                        <th style="padding: 1rem;">Responsabilidad</th>
+                        <th style="padding: 1rem;">Ideal Para</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;"><strong>Auto-Custodia</strong></td>
+                        <td style="padding: 1rem;">100%</td>
+                        <td style="padding: 1rem;">100%</td>
+                        <td style="padding: 1rem;">&lt;$10M, equipo técnico</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;"><strong>Multisig Colaborativo</strong></td>
+                        <td style="padding: 1rem;">Alto</td>
+                        <td style="padding: 1rem;">Compartida</td>
+                        <td style="padding: 1rem;">$1M-$100M, balance ideal</td>
+                    </tr>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;"><strong>Custodio Institucional</strong></td>
+                        <td style="padding: 1rem;">Bajo</td>
+                        <td style="padding: 1rem;">Custodio</td>
+                        <td style="padding: 1rem;">&gt;$50M, regulación estricta</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;"><strong>Multisig Multi-Institucional</strong></td>
+                        <td style="padding: 1rem;">Alto</td>
+                        <td style="padding: 1rem;">Distribuida</td>
+                        <td style="padding: 1rem;">&gt;$100M, máxima seguridad</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="background: #fef9e7; border-left: 4px solid var(--gold-accent); padding: 1.5rem; margin: 2rem 0;">
+                <p style="margin: 0; line-height: 1.8;"><strong>⚡ Principio clave:</strong> Mayor control = mayor responsabilidad. La auto-custodia requiere procesos operativos robustos. Custodia institucional sacrifica soberanía por conveniencia regulatoria.</p>
+            </div>
+
+            <h2 style="margin-top: 3rem; font-family: var(--font-heading);">2. Auto-Custodia Institucional</h2>
+
+            <p><strong>Concepto:</strong> La empresa controla el 100% de las llaves privadas. Sin intermediarios. Máxima soberanía.</p>
+
+            <div class="two-col-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+                <div class="card" style="background: #f0f9ff; border-left: 4px solid #3b82f6;">
+                    <h4 style="color: #1e40af; margin-top: 0;">✅ Ventajas</h4>
+                    <ul style="line-height: 1.8;">
+                        <li>Sin counterparty risk</li>
+                        <li>Control total (nadie puede congelar fondos)</li>
+                        <li>Costos bajos (hardware únicamente)</li>
+                        <li>Privacidad máxima</li>
+                    </ul>
+                </div>
+                <div class="card" style="background: #fef2f2; border-left: 4px solid #ef4444;">
+                    <h4 style="color: #991b1b; margin-top: 0;">⚠️ Desventajas</h4>
+                    <ul style="line-height: 1.8;">
+                        <li>Responsabilidad 100% interna</li>
+                        <li>Requiere expertise técnico</li>
+                        <li>Procesos operativos críticos</li>
+                        <li>Sin "support line" externo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Hardware Wallets Recomendados (Solo Open Source)</h3>
+            <p>Las llaves privadas NUNCA deben estar en computadora conectada a internet. Solo dispositivos de código abierto verificables:</p>
+
+            <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: var(--navy-primary); color: white;">
+                        <th style="padding: 1rem;">Dispositivo</th>
+                        <th style="padding: 1rem;">Por Qué Open Source Importa</th>
+                        <th style="padding: 1rem;">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;"><strong>Coldcard Mk4</strong></td>
+                        <td style="padding: 1rem;">Auditable, air-gapped, sin Bluetooth, secure element verificado</td>
+                        <td style="padding: 1rem;">$148 USD</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;"><strong>Trezor Model T</strong></td>
+                        <td style="padding: 1rem;">Código 100% abierto, comunidad activa, sin componentes cerrados</td>
+                        <td style="padding: 1rem;">$219 USD</td>
+                    </tr>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;"><strong>Foundation Passport</strong></td>
+                        <td style="padding: 1rem;">Air-gapped, batería removible, QR code signing, verificable</td>
+                        <td style="padding: 1rem;">$259 USD</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;"><strong>Blockstream Jade</strong></td>
+                        <td style="padding: 1rem;">Open source, multisig nativo, costo accesible</td>
+                        <td style="padding: 1rem;">$65 USD</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1.5rem; margin: 2rem 0;">
+                <p style="margin: 0; line-height: 1.8;"><strong>⚠️ Por qué evitar hardware cerrado:</strong> Dispositivos de código cerrado (como Ledger) tienen componentes no verificables. Para custodia institucional, necesitas auditar TODO el stack. Solo open source permite verificación independiente.</p>
+            </div>
+
+            <h2 style="margin-top: 3rem; font-family: var(--font-heading);">3. Multisig Colaborativo: El Balance Ideal</h2>
+
+            <p><strong>Concepto:</strong> Requiere <strong>múltiples firmas</strong> (ej: 2-de-3, 3-de-5) para mover fondos. La empresa controla algunas llaves, el proveedor colaborativo controla otras como respaldo.</p>
+
+            <h3>Proveedores Especializados</h3>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem;">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">Unchained Capital</h4>
+                <p><strong>Modelo:</strong> 2-de-3 multisig</p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Empresa controla 2 llaves (hardware wallets diferentes)</li>
+                    <li>Unchained controla 1 llave (recovery)</li>
+                    <li>Unchained <strong>nunca</strong> puede mover fondos solo</li>
+                    <li>Empresa <strong>siempre</strong> tiene control (2 llaves propias)</li>
+                </ul>
+                <p><strong>Comisiones:</strong> 0.5-1% anual</p>
+                <p><strong>Ventaja clave:</strong> Sin counterparty risk — empresa siempre controla</p>
+                <p style="margin-bottom: 0;"><strong>Mínimo:</strong> $100k USD</p>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem;">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">Casa</h4>
+                <p><strong>Modelo:</strong> 3-de-5 multisig</p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Empresa controla 3 llaves</li>
+                    <li>Casa controla 2 llaves (recovery, no puede mover solo)</li>
+                    <li>Mayor redundancia (puede perder 2 llaves y recuperar)</li>
+                </ul>
+                <p><strong>Comisiones:</strong> Variable según AUM</p>
+                <p style="margin-bottom: 0;"><strong>Ideal para:</strong> Instituciones que requieren máxima redundancia</p>
+            </div>
+
+            <h2 style="margin-top: 3rem; font-family: var(--font-heading);">4. Custodia Institucional Tradicional</h2>
+
+            <p>Cuando regulación o tamaño de holdings demandan un custodio regulado completo:</p>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem;">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">Fidelity Digital Assets</h4>
+                <p><strong>Perfil:</strong> Family offices, hedge funds, institucionales tradicionales</p>
+                <p><strong>Ventajas:</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Marca tradicional de confianza (Fidelity = $4.5T AUM total)</li>
+                    <li>Segregación completa de activos</li>
+                    <li>Reportes institucionales robustos</li>
+                </ul>
+                <p><strong>Consideraciones:</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Solo disponible en USA actualmente</li>
+                    <li>Comisiones comparables a otros custodios institucionales</li>
+                    <li>Custodio controla llaves (counterparty risk)</li>
+                </ul>
+                <p style="margin-bottom: 0;"><strong>Mínimo:</strong> $250k USD</p>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem;">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">BitGo (Institutional)</h4>
+                <p><strong>Perfil:</strong> Exchanges, instituciones financieras</p>
+                <p><strong>Ventajas:</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Pioneros en multisig institucional</li>
+                    <li>Custody + infraestructura de wallet</li>
+                    <li>Regulado en USA y otros países</li>
+                </ul>
+                <p><strong>Consideraciones:</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Enfoque más técnico (curva de aprendizaje)</li>
+                    <li>Requiere integración técnica robusta</li>
+                </ul>
+            </div>
+
+            <div style="background: #fef9e7; border-left: 4px solid var(--gold-accent); padding: 1.5rem; margin: 2rem 0;">
+                <p style="margin: 0; line-height: 1.8;"><strong>⚡ Nota sobre custodios:</strong> Todos los custodios institucionales introducen counterparty risk. El custodio controla las llaves y puede (técnicamente) congelar fondos. Para empresas que priorizan soberanía, considerar multisig colaborativo o auto-custodia educada.</p>
+            </div>
+
+            <h2 style="margin-top: 3rem; font-family: var(--font-heading);">5. ArcadiaB: Custodia para el Mercado Mexicano</h2>
+
+            <p>ArcadiaB ofrece tres modelos de custodia diseñados específicamente para instituciones mexicanas y latinoamericanas:</p>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem; border: 2px solid var(--gold-accent);">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">Modelo 1: Auto-Custodia Educada</h4>
+                <p><strong>Concepto:</strong> ArcadiaB capacita a sus clientes institucionales para tomar auto-custodia responsable de sus propios Bitcoin.</p>
+                
+                <p><strong>Qué incluye:</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Capacitación técnica: configuración de hardware wallets open source</li>
+                    <li>Diseño de procesos operativos de seguridad</li>
+                    <li>Setup de multisig interno (ej: CFO + Controller)</li>
+                    <li>Procedimientos de backup y recovery</li>
+                    <li>Auditoría de seguridad operativa</li>
+                </ul>
+
+                <p><strong>Ideal para:</strong> Instituciones con $1M-$10M en BTC que quieren máxima soberanía y tienen equipo dispuesto a aprender.</p>
+
+                <p style="margin-bottom: 0;"><strong>Ventaja:</strong> Soberanía completa + educación profesional = mejor balance riesgo/control</p>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem; border: 2px solid var(--gold-accent);">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">Modelo 2: Multisig con ArcadiaB (1 Llave)</h4>
+                <p><strong>Concepto:</strong> Configuración multisig donde ArcadiaB sostiene UNA llave como respaldo, el cliente sostiene las demás.</p>
+                
+                <p><strong>Configuración típica (2-de-3):</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Cliente controla Llave 1 (CFO, hardware wallet)</li>
+                    <li>Cliente controla Llave 2 (Controller, hardware wallet diferente)</li>
+                    <li>ArcadiaB controla Llave 3 (recovery/backup, no puede mover solo)</li>
+                </ul>
+
+                <p><strong>Ventajas:</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Cliente <strong>siempre</strong> tiene control (2 llaves propias)</li>
+                    <li>ArcadiaB nunca puede mover fondos sin autorización del cliente</li>
+                    <li>Recovery disponible si cliente pierde 1 llave</li>
+                    <li>Balance perfecto entre control y respaldo</li>
+                </ul>
+
+                <p><strong>Diseño personalizado:</strong> Trabajamos con cada cliente para determinar el número óptimo de llaves y requisitos de autorización (2-de-3, 3-de-5, etc.)</p>
+
+                <p><strong>Ideal para:</strong> $5M-$50M en tenencias, instituciones que quieren control pero también respaldo profesional.</p>
+
+                <p style="margin-bottom: 0;"><strong>Comisión:</strong> Competitiva con proveedores internacionales, estructura adaptada al mercado mexicano</p>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem; border: 2px solid var(--gold-accent);">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">Modelo 3: Multisig Multi-Institucional Global</h4>
+                <p><strong>Concepto:</strong> Para holdings de alto valor, distribución geográfica de llaves entre múltiples socios custodiales de confianza alrededor del mundo + cliente.</p>
+                
+                <p><strong>Configuración típica (3-de-5):</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Cliente controla 1-2 llaves (opcional, según preferencia)</li>
+                    <li>ArcadiaB (México) controla 1 llave</li>
+                    <li>Socio custodial USA controla 1 llave</li>
+                    <li>Socio custodial Europa/Asia controla 1 llave</li>
+                    <li>Socio adicional controla 1 llave</li>
+                </ul>
+
+                <p><strong>Ventajas:</strong></p>
+                <ul style="line-height: 1.8; margin: 1rem 0;">
+                    <li>Diversificación geográfica (jurisdicciones múltiples)</li>
+                    <li>Sin punto único de falla</li>
+                    <li>Máxima seguridad para holdings &gt;$100M</li>
+                    <li>Red de confianza distribuida globalmente</li>
+                </ul>
+
+                <p><strong>Socios custodiales de confianza:</strong> ArcadiaB trabaja con una red verificada de socios institucionales en diferentes jurisdicciones.</p>
+
+                <p><strong>Ideal para:</strong> Family offices, instituciones con &gt;$100M en Bitcoin que requieren máxima seguridad geográfica y redundancia.</p>
+
+                <p style="margin-bottom: 0;"><strong>Proceso:</strong> Diseño personalizado basado en perfil de riesgo, jurisdicción, y preferencias del cliente</p>
+            </div>
+
+            <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 2rem; margin: 3rem 0;">
+                <h4 style="margin-top: 0; color: var(--navy-primary);">¿Por Qué ArcadiaB?</h4>
+                <ul style="line-height: 1.8; margin-bottom: 0;">
+                    <li><strong>Único ASOFOM certificado para Bitcoin en México</strong> — regulación local clara</li>
+                    <li><strong>Enfoque educativo</strong> — no solo custody, sino capacitación real</li>
+                    <li><strong>Diseño personalizado</strong> — cada empresa tiene necesidades únicas</li>
+                    <li><strong>Contexto mexicano</strong> — entendemos regulación, impuestos, y realidad local</li>
+                    <li><strong>Red global de socios</strong> — acceso a custodios institucionales confiables</li>
+                </ul>
+            </div>
+
+            <h2 style="margin-top: 3rem; font-family: var(--font-heading);">6. Operaciones de Seguridad: Best Practices</h2>
+
+            <h3>Workflow de Recepción</h3>
+
+            <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <h4 style="margin-top: 0;">Ejemplo: Compra de $5M en Bitcoin</h4>
+                <ol style="line-height: 1.8; margin: 1rem 0;">
+                    <li><strong>Paso 1:</strong> CFO aprueba compra</li>
+                    <li><strong>Paso 2:</strong> Tesorero ejecuta orden en exchange regulado</li>
+                    <li><strong>Paso 3:</strong> Bitcoin comprado (temporalmente en exchange)</li>
+                    <li><strong>Paso 4:</strong> Withdrawal a dirección multisig corporativa</li>
+                    <li><strong>Paso 5:</strong> Confirmar recepción (blockchain explorer)</li>
+                    <li><strong>Paso 6:</strong> Mover BTC a cold storage (llaves offline)</li>
+                </ol>
+                <p style="margin-bottom: 0;"><strong>Para gastar:</strong> Requiere firmar transacción con múltiples llaves según configuración (ej: CFO + Controller usando hardware wallets separados)</p>
+            </div>
+
+            <h3>Segregación de Llaves (Crítico)</h3>
+
+            <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: var(--navy-primary); color: white;">
+                        <th style="padding: 1rem;">Llave</th>
+                        <th style="padding: 1rem;">Quién</th>
+                        <th style="padding: 1rem;">Dónde</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;">Llave 1</td>
+                        <td style="padding: 1rem;">CFO</td>
+                        <td style="padding: 1rem;">Caja fuerte personal (casa)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem;">Llave 2</td>
+                        <td style="padding: 1rem;">Controller</td>
+                        <td style="padding: 1rem;">Caja fuerte oficina</td>
+                    </tr>
+                    <tr style="background: var(--light-gray);">
+                        <td style="padding: 1rem;">Llave 3</td>
+                        <td style="padding: 1rem;">ArcadiaB / Unchained</td>
+                        <td style="padding: 1rem;">Vault institucional (recovery)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>⚠️ NUNCA:</strong></p>
+            <ul style="line-height: 1.8; margin: 1rem 0;">
+                <li>Guardar múltiples llaves en el mismo lugar físico</li>
+                <li>Dar acceso a todas las llaves a una sola persona</li>
+                <li>Almacenar seed phrases digitalmente (fotos, email, cloud)</li>
+            </ul>
+
+            <h3>Procedimientos de Auditoría</h3>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem;">
+                <h4 style="margin-top: 0;">Auditoría Trimestral (Mínimo)</h4>
+                <ol style="line-height: 1.8; margin: 1rem 0;">
+                    <li><strong>Verificar balance on-chain:</strong> Blockchain explorer público</li>
+                    <li><strong>Test de firma:</strong> Crear transacción de prueba (no broadcast) para confirmar que llaves funcionan</li>
+                    <li><strong>Revisar backups:</strong> Confirmar que seed phrases están seguras y accesibles</li>
+                    <li><strong>Actualizar documentación:</strong> Procedimientos de recovery, contactos de emergencia</li>
+                </ol>
+                <p style="margin-bottom: 0;"><strong>Responsable:</strong> CFO + Controller (dual control)</p>
+            </div>
+
+            <h2 style="margin-top: 3rem; font-family: var(--font-heading);">7. Estrategia de Custodia por Tamaño</h2>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem; background: var(--light-gray);">
+                <h4 style="margin-top: 0;"><strong>&lt;$1M:</strong> Auto-Custodia Simple</h4>
+                <ul style="line-height: 1.8; margin-bottom: 0;">
+                    <li>2-de-3 multisig con hardware wallets open source (Coldcard, Trezor)</li>
+                    <li>CEO + CFO controlan llaves</li>
+                    <li>Educación con ArcadiaB o recursos públicos</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem;">
+                <h4 style="margin-top: 0;"><strong>$1M-$10M:</strong> Auto-Custodia Educada con ArcadiaB</h4>
+                <ul style="line-height: 1.8; margin-bottom: 0;">
+                    <li>Capacitación profesional de ArcadiaB</li>
+                    <li>Multisig 2-de-3 o 3-de-5 interno</li>
+                    <li>Procesos operativos auditados</li>
+                    <li>Balance ideal: control + expertise</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem; background: var(--light-gray);">
+                <h4 style="margin-top: 0;"><strong>$10M-$50M:</strong> Multisig con ArcadiaB (1 Llave)</h4>
+                <ul style="line-height: 1.8; margin-bottom: 0;">
+                    <li>Cliente controla 2+ llaves, ArcadiaB 1 llave recovery</li>
+                    <li>Sin counterparty risk (cliente siempre puede mover)</li>
+                    <li>Respaldo profesional disponible</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem;">
+                <h4 style="margin-top: 0;"><strong>$50M-$100M:</strong> Multisig Colaborativo + Custodio Opcional</h4>
+                <ul style="line-height: 1.8; margin-bottom: 0;">
+                    <li>Primary: Multisig con ArcadiaB</li>
+                    <li>Backup: Custodio institucional (Fidelity, BitGo) con porción menor</li>
+                    <li>Diversificación de modelos</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin: 2rem 0; padding: 2rem; background: var(--light-gray);">
+                <h4 style="margin-top: 0;"><strong>&gt;$100M:</strong> Multisig Multi-Institucional Global</h4>
+                <ul style="line-height: 1.8; margin-bottom: 0;">
+                    <li>3-de-5 o superior con socios globales</li>
+                    <li>Diseño personalizado por ArcadiaB</li>
+                    <li>Máxima diversificación geográfica y jurisdiccional</li>
+                </ul>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border-gray);">
+
+            <div style="background: var(--light-gray); padding: 2rem; border-left: 4px solid var(--gold-accent); margin-top: 3rem;">
+                <h3 style="margin-top: 0;">¿Listo para diseñar su estrategia de custodia?</h3>
+                <p style="margin-bottom: 1.5rem;">
+                    ArcadiaB ofrece consultas personalizadas para instituciones mexicanas. Analizamos su perfil de riesgo, tamaño de holdings, y requisitos regulatorios para recomendar el modelo óptimo.
+                </p>
+                <a href="https://www.kapitalex.com/#/register?ref=FDQEXS1WD6LZ4IQ" class="button primary">
+                    Agendar Consulta →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="padding: 2rem 0; text-align: center;">
+                <p>© 2026 Capital Duro | Con el apoyo de ArcadiaB y AsoBitcoinMX</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
