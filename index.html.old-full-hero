@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Duro - Estrategias de Capital Resistente Mexicanos</title>
+    <meta name="description" content="Investigación rigurosa y herramientas de implementación para instituciones mexicanas que afrontan la transformación del capital resistente. Bitcoin, oro, activos duros.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <div class="logo">CAPITAL DURO</div>
+                <div class="tagline">Estrategias de Capital Resistente</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" onclick="return false;">Investigación ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="/reportes.html">Reportes</a>
+                        <a href="/analisis.html">Análisis</a>
+                        <a href="/estudios-caso.html">Estudios de Caso</a>
+                        <a href="/perspectivas.html" style="color: #C9963B;">Perspectivas Invitadas</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" onclick="return false;">Recursos ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="/libros.html">Libros Recomendados</a>
+                        <a href="/podcasts.html">Podcasts</a>
+                        <a href="/custodia.html">Custodia Institucional</a>
+                        <a href="/guias.html">Guías y Frameworks</a>
+                    </div>
+                </li>
+                <li><a href="/eventos.html">Eventos</a></li>
+                <li><a href="/acerca.html">Acerca de</a></li>
+                <li><a href="#newsletter" class="button primary" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">Suscribirse</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Proteja su Capital. Evite la Devaluación.<br>Domine las Estrategias de Capital Duro.</h1>
+                <p class="hero-subtitle">
+                    Análisis riguroso y herramientas de implementación para instituciones mexicanas 
+                    que enfrentan la transformación del sistema monetario global.
+                </p>
+                <div class="hero-cta">
+                    <button onclick="showReportModal()" class="button primary" style="border: none; cursor: pointer;">Descargue Nuestro Último Reporte</button>
+                    <a href="/recursos.html" class="button secondary">Explore los Recursos</a>
+                </div>
+                <p class="hero-sponsor">
+                    Investigación dirigida por expertos en tesorería institucional | 
+                    Con el apoyo de <strong>ArcadiaB</strong> y <strong>AsoBitcoinMX</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section style="padding: 3rem 0; background: white; border-bottom: 1px solid var(--border-gray);">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 2rem;">
+                <div style="flex: 1;">
+                    <p style="font-size: 0.875rem; color: var(--gold-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Dirección Editorial</p>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--navy-primary);">Boyd Cohen, PhD</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: var(--medium-gray); margin-bottom: 0;">
+                        Chief Strategy Officer en <strong style="color: var(--navy-primary);">ArcadiaB</strong> (única ASOFOM certificada para Bitcoin en México) | 
+                        Ex-Director Académico de EGADE Business School | 
+                        Autor de <em>"Bitcoin Singularity"</em> | 
+                        Ponente internacional en más de 30 conferencias
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Whitepaper -->
+
+<!-- NEW PRICING WIDGET - Two-Tier Design -->
+<section style="padding: 4rem 0; background: linear-gradient(180deg, #0D0F1A 0%, #111327 100%);">
+    <div class="container" style="max-width: 1200px;">
+        
+        <!-- Header -->
+        <div class="pricing-header">
+            <div class="pricing-title-wrapper">
+                <h2 class="pricing-title">MERCADOS DE CAPITAL DURO</h2>
+                <div class="live-indicator">
+                    <span class="live-dot"></span>
+                    <span class="live-text">EN VIVO</span>
+                </div>
+            </div>
+            <p class="pricing-subtitle">Activos de oferta fija vs. monedas fiduciarias</p>
+            <div class="pricing-divider"></div>
+        </div>
+
+        <!-- Primary Tier: 3 Bitcoin Cards -->
+        <div class="pricing-primary-tier">
+            
+            <!-- BTC/MXN Card -->
+            <div class="btc-card" data-pair="btc-mxn">
+                <div class="card-header">
+                    <span class="card-symbol">BTC/MXN</span>
+                    <span class="card-change" id="btc-mxn-change">--</span>
+                </div>
+                <div class="card-price" id="btc-mxn-price">Cargando...</div>
+                <div class="card-description">1 BTC en pesos mexicanos</div>
+            </div>
+
+            <!-- BTC/USD Card -->
+            <div class="btc-card" data-pair="btc-usd">
+                <div class="card-header">
+                    <span class="card-symbol">BTC/USD</span>
+                    <span class="card-change" id="btc-usd-change">--</span>
+                </div>
+                <div class="card-price" id="btc-usd-price">Cargando...</div>
+                <div class="card-description">1 BTC en dólares</div>
+            </div>
+
+            <!-- BTC/XAU Card (Gold Ounces) -->
+            <div class="btc-card" data-pair="btc-xau">
+                <div class="card-header">
+                    <span class="card-symbol">BTC/XAU</span>
+                    <span class="card-change" id="btc-xau-change">--</span>
+                </div>
+                <div class="card-price" id="btc-xau-price">Cargando...</div>
+                <div class="card-description">1 BTC medido en onzas de oro</div>
+            </div>
+
+        </div>
+
+        <!-- Secondary Tier: 2 Reference Rows -->
+        <div class="pricing-secondary-tier">
+            
+            <div class="ref-row">
+                <span class="ref-symbol">XAU/USD</span>
+                <span class="ref-price" id="xau-usd-price">--</span>
+                <span class="ref-change" id="xau-usd-change">--</span>
+            </div>
+
+            <div class="ref-row">
+                <span class="ref-symbol">USD/MXN</span>
+                <span class="ref-price" id="usd-mxn-price">--</span>
+                <span class="ref-change" id="usd-mxn-change">--</span>
+            </div>
+
+        </div>
+
+        <!-- Thesis Line -->
+        <div class="pricing-thesis">
+            Bitcoin: el único activo con oferta verdaderamente fija. 21 millones. Sin excepciones.
+        </div>
+
+        <!-- Timestamp -->
+        <div class="pricing-timestamp">
+            Última actualización: <span id="pricing-last-update">--</span>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Pricing Widget Redesign - Capital Duro */
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.pricing-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(247, 147, 26, 0.85);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.live-text {
+    font-size: 0.75rem;
+    color: #10b981;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.pricing-subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1.5rem 0;
+}
+
+.pricing-divider {
+    height: 2px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, rgba(247, 147, 26, 0.5) 50%, transparent);
+}
+
+/* Primary Tier - Bitcoin Cards */
+.pricing-primary-tier {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btc-card {
+    background: linear-gradient(135deg, rgba(247, 147, 26, 0.12), rgba(247, 147, 26, 0.04));
+    border: 1px solid rgba(247, 147, 26, 0.25);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.btc-card[data-pair="btc-mxn"] {
+    animation-delay: 0s;
+}
+
+.btc-card[data-pair="btc-usd"] {
+    animation-delay: 0.05s;
+}
+
+.btc-card[data-pair="btc-xau"] {
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btc-card:hover {
+    border-color: rgba(247, 147, 26, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(247, 147, 26, 0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-symbol {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.688rem;
+    font-weight: 500;
+    color: rgba(247, 147, 26, 0.85);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.card-change {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.card-change.positive {
+    color: #34D399;
+    background: rgba(52, 211, 153, 0.15);
+}
+
+.card-change.negative {
+    color: #F87171;
+    background: rgba(248, 113, 113, 0.15);
+}
+
+.card-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #F7F7F7;
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.card-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* Secondary Tier - Reference Rows */
+.pricing-secondary-tier {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ref-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ref-symbol {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.688rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    min-width: 65px;
+}
+
+.ref-price {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    flex: 1;
+}
+
+.ref-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+}
+
+.ref-change.positive {
+    color: #34D399;
+    background: rgba(52, 211, 153, 0.1);
+}
+
+.ref-change.negative {
+    color: #F87171;
+    background: rgba(248, 113, 113, 0.1);
+}
+
+/* Thesis Line */
+.pricing-thesis {
+    text-align: center;
+    padding: 1.25rem;
+    background: rgba(247, 147, 26, 0.04);
+    border-left: 3px solid rgba(247, 147, 26, 0.6);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+/* Timestamp */
+.pricing-timestamp {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pricing-primary-tier {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .pricing-secondary-tier {
+        grid-template-columns: 1fr;
+    }
+
+    .card-price {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .pricing-primary-tier {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-price {
+        font-size: 1.3rem;
+    }
+}
+</style>
+
+<script>
+async function updatePricingWidget() {
+    console.log('🔄 Starting pricing widget update...');
+    try {
+        console.log('📡 Fetching data from Netlify function...');
+        
+        // Fetch from our serverless function (bypasses CORS)
+        const response = await fetch('/.netlify/functions/pricing');
+        
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('📊 Data received:', data);
+
+        // Extract values (already calculated server-side)
+        const btcMxn = data.btcMxn.price;
+        const btcMxnChange = data.btcMxn.change;
+        
+        const btcUsd = data.btcUsd.price;
+        const btcUsdChange = data.btcUsd.change;
+        
+        const goldUsd = data.goldUsd.price;
+        const goldChange = data.goldUsd.change;
+        
+        const usdMxn = data.usdMxn.price;
+        const usdMxnChange = data.usdMxn.change;
+
+        const btcXau = data.btcXau.price;
+        const btcXauChange = data.btcXau.change;
+
+        // Update BTC/MXN Card
+        document.getElementById('btc-mxn-price').textContent = 
+            `$${btcMxn.toLocaleString('es-MX', {maximumFractionDigits: 0})}`;
+        updateChangeElement('btc-mxn-change', btcMxnChange);
+
+        // Update BTC/USD Card
+        document.getElementById('btc-usd-price').textContent = 
+            `$${btcUsd.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+        updateChangeElement('btc-usd-change', btcUsdChange);
+
+        // Update BTC/XAU Card
+        document.getElementById('btc-xau-price').textContent = 
+            `${btcXau.toFixed(2)} oz`;
+        updateChangeElement('btc-xau-change', btcXauChange);
+
+        // Update XAU/USD Reference
+        document.getElementById('xau-usd-price').textContent = 
+            `$${goldUsd.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+        updateChangeElement('xau-usd-change', goldChange, true);
+
+        // Update USD/MXN Reference
+        document.getElementById('usd-mxn-price').textContent = 
+            `$${usdMxn.toFixed(2)}`;
+        updateChangeElement('usd-mxn-change', usdMxnChange, true);
+
+        // Update timestamp
+        const now = new Date();
+        document.getElementById('pricing-last-update').textContent = 
+            now.toLocaleTimeString('es-MX', {hour: '2-digit', minute: '2-digit'});
+
+        console.log('✅ Pricing widget updated successfully!');
+        
+    } catch (error) {
+        console.error('❌ Error fetching pricing data:', error);
+        console.error('Error details:', error.message);
+        document.getElementById('btc-mxn-price').textContent = 'Error';
+        document.getElementById('btc-usd-price').textContent = 'Error';
+        document.getElementById('btc-xau-price').textContent = 'Error';
+    }
+}
+
+function updateChangeElement(elementId, changeValue, isRef = false) {
+    const el = document.getElementById(elementId);
+    const formatted = `${changeValue > 0 ? '+' : ''}${changeValue.toFixed(isRef ? 2 : 1)}%`;
+    el.textContent = formatted;
+    el.className = isRef ? 'ref-change' : 'card-change';
+    el.classList.add(changeValue >= 0 ? 'positive' : 'negative');
+}
+
+// Initialize on load
+console.log('🚀 Initializing pricing widget on page load...');
+updatePricingWidget();
+
+// Update every minute
+console.log('⏰ Setting up 60-second update interval...');
+setInterval(updatePricingWidget, 60000);
+</script>
+    <section style="background: var(--light-gray); padding: 5rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">REPORTE DESTACADO</span>
+            </div>
+            
+            <div class="featured-whitepaper">
+                <div class="whitepaper-content">
+                    <h3>"Marco Estratégico de Capital Duro para Family Offices Mexicanas 2026"</h3>
+                    <div class="whitepaper-meta">
+                        <span><strong>42 páginas</strong></span>
+                        <span>Publicado: Febrero 2026</span>
+                    </div>
+                    <div class="whitepaper-description">
+                        <p><strong>Análisis comprensivo de:</strong></p>
+                        <ul class="whitepaper-list">
+                            <li>Devaluación del peso y exposición al riesgo monetario</li>
+                            <li>Modelos de asignación de activos duros</li>
+                            <li>Bitcoin vs. oro vs. bienes raíces: análisis comparativo</li>
+                            <li>Framework de implementación paso a paso</li>
+                        </ul>
+                    </div>
+                    <button onclick="showReportModal()" class="button primary" style="border: none; cursor: pointer;">Descargar Reporte Completo (PDF)</button>
+                    <p style="font-size: 0.875rem; color: var(--medium-gray); margin-top: 1rem;">
+                        *Requiere registro con email
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Analysis -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Análisis Reciente</h2>
+            </div>
+            
+            <div class="card-grid card-grid-3">
+                <div class="card">
+                    <div class="card-meta">15 Feb 2026 | 8 min lectura</div>
+                    <h3 class="card-title">Expansión M2 en México: Implicaciones para Tesorería Corporativa</h3>
+                    <p class="card-description">
+                        El Banco de México reportó expansión M2 de 12.3% año sobre año. 
+                        Analizamos las implicaciones para corporaciones mexicanas...
+                    </p>
+                    <div class="card-footer">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <span class="tag">#Macro</span>
+                            <span class="tag">#Tesorería</span>
+                        </div>
+                        <a href="/analisis.html" style="font-weight: 600;">Leer más →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-meta">12 Feb 2026 | 12 min lectura</div>
+                    <h3 class="card-title">Por Qué 18 Empresas Públicas Globales Mantienen Bitcoin en Tesorería</h3>
+                    <p class="card-description">
+                        Desde Strategy en 2020, una lista creciente de empresas públicas 
+                        ha adoptado Bitcoin. Lecciones para contexto mexicano...
+                    </p>
+                    <div class="card-footer">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <span class="tag">#Bitcoin</span>
+                            <span class="tag">#Casos</span>
+                        </div>
+                        <a href="/analisis.html" style="font-weight: 600;">Leer más →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-meta">8 Feb 2026 | 15 min lectura</div>
+                    <h3 class="card-title">Oro vs. Bitcoin: Análisis Cuantitativo para Instituciones 2026</h3>
+                    <p class="card-description">
+                        Comparamos portabilidad, divisibilidad, verificabilidad, y retornos 
+                        ajustados por riesgo. Métricas que importan a treasurers...
+                    </p>
+                    <div class="card-footer">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <span class="tag">#Bitcoin</span>
+                            <span class="tag">#Oro</span>
+                        </div>
+                        <a href="/analisis.html" style="font-weight: 600;">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/analisis.html" class="button outline">Ver Todos los Análisis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Guest Perspective -->
+    <section style="padding: 5rem 0; background: linear-gradient(180deg, white 0%, rgba(201,150,59,0.03) 100%);">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge" style="background: #C9963B; color: #0A0F1E;">Perspectiva Invitada</span>
+                <h2 class="section-title" style="margin-top: 1rem;">Perspectiva Invitada Destacada</h2>
+                <p class="section-subtitle">Líderes institucionales comparten sus estrategias de capital resistente</p>
+            </div>
+
+            <!-- Featured Guest Card -->
+            <div style="max-width: 900px; margin: 3rem auto; background: white; border: 1px solid rgba(201,150,59,0.2); border-left: 4px solid #C9963B; border-radius: 8px; padding: 3rem; box-shadow: 0 4px 12px rgba(201,150,59,0.1);">
+                
+                <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #C9963B, #D4A853); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white; flex-shrink: 0;">
+                        JM
+                    </div>
+                    <div>
+                        <h4 style="margin: 0 0 0.25rem 0; font-size: 1.25rem;">José Manuel Rodríguez</h4>
+                        <p style="margin: 0; color: var(--medium-gray); font-size: 0.95rem;">Director General, Family Office XYZ</p>
+                    </div>
+                </div>
+
+                <h3 style="font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: 1rem; color: var(--navy-primary);">
+                    "Bienes Raíces Comerciales AAA y Bitcoin: Una Tesis de Convergencia"
+                </h3>
+
+                <p style="color: var(--medium-gray); line-height: 1.8; font-size: 1rem; margin-bottom: 1.5rem;">
+                    Después de 15 años desarrollando portafolios de bienes raíces institucionales en México, he llegado a una conclusión que hubiera parecido imposible hace 5 años: Bitcoin y bienes raíces comerciales AAA no son competidores, son complementarios en una estrategia moderna de capital duro...
+                </p>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-gray);">
+                    <div style="display: flex; gap: 1rem; font-size: 0.9rem; color: var(--medium-gray);">
+                        <span>📅 Febrero 12, 2026</span>
+                        <span>⏱ 8 min lectura</span>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; font-size: 0.85rem;">
+                        <span style="background: rgba(201,150,59,0.1); color: #C9963B; padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 600;">#BienesRaíces</span>
+                        <span style="background: rgba(201,150,59,0.1); color: #C9963B; padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 600;">#FamilyOffice</span>
+                        <span style="background: rgba(201,150,59,0.1); color: #C9963B; padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 600;">#Bitcoin</span>
+                    </div>
+                </div>
+
+                <a href="/perspectivas/bienes-raices-bitcoin-convergencia.html" class="button primary" style="background: #C9963B; border-color: #C9963B;">Leer Perspectiva Completa →</a>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/perspectivas.html" class="button outline" style="color: #C9963B; border-color: #C9963B;">Ver Todas las Perspectivas Invitadas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Próximos Eventos Institucionales</h2>
+            </div>
+
+            <div class="card-grid card-grid-2">
+                <div class="card" style="border-left: 4px solid var(--gold-accent);">
+                    <span class="badge">PATROCINADOR PLATINO</span>
+                    <h3 style="margin-top: 1rem; font-size: 1.75rem;">MITA TechTalks 2026</h3>
+                    <h4 style="color: var(--medium-gray); font-size: 1.125rem; font-weight: 500;">
+                        The Future of Capital: Bitcoin, AI, and Energy
+                    </h4>
+                    <div style="margin: 1.5rem 0; color: var(--medium-gray);">
+                        <p><strong>📅</strong> 17-19 Mayo 2026</p>
+                        <p><strong>📍</strong> Punta Mita, México</p>
+                        <p><strong>👥</strong> 125 asistentes exclusivos</p>
+                    </div>
+                    <p style="margin-bottom: 1.5rem;">
+                        ArcadiaB es Patrocinador Platino. Gathering íntimo de ejecutivos, 
+                        family offices, y líderes explorando Bitcoin, AI, y energía.
+                    </p>
+                    <a href="/eventos.html" class="button primary">Solicitar Invitación</a>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: 1.75rem;">LABITCONF B2B - CDMX</h3>
+                    <h4 style="color: var(--medium-gray); font-size: 1.125rem; font-weight: 500;">
+                        Bitcoin, Stablecoins y Blockchain para Empresas
+                    </h4>
+                    <div style="margin: 1.5rem 0; color: var(--medium-gray);">
+                        <p><strong>📅</strong> 8 Mayo 2026</p>
+                        <p><strong>📍</strong> Polyforum Siqueiros, Ciudad de México</p>
+                        <p><strong>👥</strong> 1,000+ asistentes | 60+ ponentes globales</p>
+                    </div>
+                    <p style="margin-bottom: 1.5rem;">
+                        Boyd Cohen presenta sobre estrategia de tesorería Bitcoin. 
+                        La conferencia líder de Bitcoin en América Latina.
+                    </p>
+                    <a href="/eventos.html" class="button outline">Registrarse</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/eventos.html" style="font-weight: 600; color: var(--gold-accent);">
+                    Ver Calendario Completo de Eventos →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Highlights -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos Esenciales</h2>
+            </div>
+
+            <div class="card-grid card-grid-3">
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
+                    <h3 class="card-title">BIBLIOTECA CURADA</h3>
+                    <p class="card-description">
+                        30+ libros esenciales sobre capital duro, dinero sano, y teoría monetaria austriaca
+                    </p>
+                    <a href="/libros.html" class="button outline">Explorar →</a>
+                </div>
+
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎧</div>
+                    <h3 class="card-title">PODCASTS INSTITUCIONALES</h3>
+                    <p class="card-description">
+                        Conversaciones con CFOs, treasurers, y líderes de family offices
+                    </p>
+                    <a href="/podcasts.html" class="button outline">Escuchar →</a>
+                </div>
+
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                    <h3 class="card-title">GUÍA DE CUSTODIA</h3>
+                    <p class="card-description">
+                        Comparativa completa de soluciones de custodia institucional
+                    </p>
+                    <a href="/custodia.html" class="button outline">Leer Guía →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Únase a Ejecutivos y Family Offices</h3>
+                <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                    Reciba análisis mensual de capital duro, reportes trimestrales, 
+                    y actualizaciones exclusivas de eventos.
+                </p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Email corporativo" required style="flex: 1; padding: 1rem 1.5rem; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 1rem; border-radius: 4px;">
+                    <button type="submit" class="button primary" style="padding: 1rem 2.5rem; white-space: nowrap;">SUSCRIBIRSE</button>
+                </form>
+                <p class="newsletter-note" style="margin-top: 1rem; opacity: 0.8;">
+                    Sin spam. Solo investigación institucional. Cancele cuando quiera.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>CAPITAL DURO</h4>
+                    <p>
+                        Estrategias de Capital Resistente Mexicanos
+                    </p>
+                    <div class="footer-social">
+                        <p style="font-size: 0.875rem; opacity: 0.7;">Síguenos (próximamente)</p>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Investigación</h5>
+                    <ul>
+                        <li><a href="/reportes.html">Reportes</a></li>
+                        <li><a href="/analisis.html">Análisis</a></li>
+                        <li><a href="/estudios-caso.html">Estudios de Caso</a></li>
+                        <li><a href="/perspectivas.html" style="color: #C9963B;">Perspectivas Invitadas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Recursos</h5>
+                    <ul>
+                        <li><a href="/libros.html">Libros Recomendados</a></li>
+                        <li><a href="/podcasts.html">Podcasts</a></li>
+                        <li><a href="/custodia.html">Custodia Institucional</a></li>
+                        <li><a href="/guias.html">Guías y Frameworks</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Acerca de</h5>
+                    <ul>
+                        <li><a href="/acerca.html">Nuestra Misión</a></li>
+                        <li><a href="/acerca.html#equipo">Equipo</a></li>
+                        <li><a href="/acerca.html#patrocinadores">Patrocinadores</a></li>
+                        <li><a href="/acerca.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="/privacidad.html">Política de Privacidad</a></li>
+                        <li><a href="/terminos.html">Términos de Uso</a></li>
+                        <li><a href="#newsletter">Darse de Baja</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Capital Duro. Patrocinado por ArcadiaB & AsoBitcoinMX.<br>
+                    Toda la investigación es con propósitos educativos. No constituye asesoría de inversión. 
+                    Consulte con profesionales antes de tomar decisiones de capital.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Desarrollado con ❤️ para instituciones mexicanas.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter form handler
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            
+            try {
+                const response = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        tag: 'newsletter'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('¡Gracias por suscribirse! Recibirá nuestros reportes pronto.');
+                    this.reset();
+                } else {
+                    alert('Error al suscribirse. Por favor intente de nuevo.');
+                    console.error('Subscription error:', data);
+                }
+            } catch (error) {
+                alert('Error de conexión. Por favor intente de nuevo.');
+                console.error('Network error:', error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+    </script>
+</body>
+</html>
+
+    <!-- Email Capture Modal -->
+    <div id="reportModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background: white; max-width: 500px; width: 90%; padding: 3rem 2rem; border-radius: 8px; position: relative;">
+            <button onclick="hideReportModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--medium-gray);">&times;</button>
+            
+            <h2 style="font-family: var(--font-heading); margin-bottom: 1rem; color: var(--navy-primary);">Seleccione su Reporte</h2>
+            <p style="color: var(--medium-gray); margin-bottom: 2rem;">
+                Reportes institucionales exclusivos de 28-42 páginas
+            </p>
+            
+            <div style="margin-bottom: 2rem;">
+                <label style="display: block; padding: 1rem; border: 2px solid var(--border-gray); border-radius: 8px; margin-bottom: 1rem; cursor: pointer;">
+                    <input type="radio" name="report" value="marco-estrategico" checked style="margin-right: 0.5rem;">
+                    <strong>Marco Estratégico de Capital Duro</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--medium-gray);">42 páginas | Family offices mexicanas | Estrategia completa</span>
+                </label>
+                
+                <label style="display: block; padding: 1rem; border: 2px solid var(--border-gray); border-radius: 8px; cursor: pointer;">
+                    <input type="radio" name="report" value="oro-vs-bitcoin" style="margin-right: 0.5rem;">
+                    <strong>Oro vs. Bitcoin: Análisis Cuantitativo</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--medium-gray);">28 páginas | Comparación objetiva | Performance histórico</span>
+                </label>
+            </div>
+            
+            <form id="reportForm" onsubmit="submitReportForm(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="email" id="reportEmail" required placeholder="correo@empresa.com" style="padding: 1rem; border: 2px solid var(--border-gray); border-radius: 4px; font-size: 1rem;">
+                <button type="submit" class="button primary" style="width: 100%; border: none; cursor: pointer;">Acceder al Reporte</button>
+            </form>
+            
+            <p style="font-size: 0.9rem; color: var(--medium-gray); margin-top: 1rem; text-align: center;">
+                Sin spam. Solo recibirá el reporte solicitado.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showReportModal() {
+            document.getElementById('reportModal').style.display = 'flex';
+        }
+        
+        function hideReportModal() {
+            document.getElementById('reportModal').style.display = 'none';
+        }
+        
+        async function submitReportForm(event) {
+            event.preventDefault();
+            const email = document.getElementById('reportEmail').value;
+            const selectedReport = document.querySelector('input[name="report"]:checked').value;
+            
+            // Determine which report to show
+            let reportUrl = '/reporte-marco-estrategico.html';
+            if (selectedReport === 'oro-vs-bitcoin') {
+                reportUrl = '/reporte-oro-vs-bitcoin.html';
+            } else if (selectedReport === 'bitcoin-lending') {
+                reportUrl = '/reporte-bitcoin-lending.html';
+            } else if (selectedReport === 'bitcoin-vs-real-estate') {
+                reportUrl = '/reporte-bitcoin-vs-real-estate.html';
+            }
+            
+            // Subscribe to ConvertKit with "reporte-descarga" tag
+            try {
+                const response = await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        tag: 'reporte-descarga'
+                    })
+                });
+                
+                if (!response.ok) {
+                    console.error('Failed to subscribe:', await response.json());
+                }
+            } catch (error) {
+                console.error('Subscription error:', error);
+            }
+            
+            // Redirect to report regardless of subscription success
+            alert('¡Gracias! Redirigiendo al reporte...');
+            window.location.href = reportUrl;
+            hideReportModal();
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('reportModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideReportModal();
+            }
+        });
+    </script>
