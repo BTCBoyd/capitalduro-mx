@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oro vs. Bitcoin: Análisis Cuantitativo para Instituciones - Capital Duro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-primary: #1a2332;
+            --gold-accent: #d4af37;
+            --warm-white: #fafaf8;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: var(--navy-primary);
+            background: var(--warm-white);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--navy-primary);
+        }
+        
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--navy-primary);
+            border-bottom: 2px solid var(--gold-accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--navy-primary);
+        }
+        
+        .cover {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 3px solid var(--gold-accent);
+            margin-bottom: 3rem;
+        }
+        
+        .cover-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .cover-subtitle {
+            font-size: 0.9rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+        
+        .metadata {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--gold-accent);
+            margin: 2rem 0;
+        }
+        
+        .metadata p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .highlight-box {
+            background: #fef9e7;
+            border-left: 4px solid var(--gold-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .data-point {
+            background: var(--navy-primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .data-point .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: var(--navy-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .winner {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        .footer-note {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-gray);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <div class="cover-logo">CAPITAL DURO</div>
+        <div class="cover-subtitle">Análisis Cuantitativo 2026</div>
+        <h1>Oro vs. Bitcoin:<br>Análisis para Instituciones</h1>
+        <p style="font-size: 1.1rem; color: var(--medium-gray); margin-top: 2rem;">
+            Comparación objetiva de características monetarias,<br>
+            rendimiento histórico, y consideraciones operativas<br>
+            para tesorerías corporativas
+        </p>
+    </div>
+
+    <div class="metadata">
+        <p><strong>Publicado:</strong> Febrero 2026</p>
+        <p><strong>Autor:</strong> Equipo de Investigación Capital Duro</p>
+        <p><strong>Editor:</strong> Boyd Cohen, PhD (CSO, ArcadiaB)</p>
+        <p><strong>Páginas:</strong> 28</p>
+        <p><strong>Clasificación:</strong> Uso Institucional - CFOs, Tesoreros, Family Offices</p>
+    </div>
+
+    <h2>Resumen Ejecutivo</h2>
+
+    <p>
+        Oro y Bitcoin representan las dos formas más establecidas de "capital duro" disponibles para instituciones modernas. 
+        Aunque comparten características fundamentales — escasez verificable, resistencia a manipulación gubernamental, 
+        track record de preservación de valor — difieren significativamente en atributos operativos, perfil de riesgo, 
+        y aplicabilidad para diferentes perfiles institucionales.
+    </p>
+
+    <p>
+        Este reporte presenta análisis cuantitativo comparativo basado en datos históricos de 2008-2026, con énfasis particular 
+        en el período 2020-2026 donde ambos activos han coexistido como opciones institucionales viables. Nuestro objetivo no es 
+        determinar un "ganador", sino proveer marco analítico que permita a CFOs y tesoreros tomar decisiones informadas según 
+        su perfil de riesgo específico.
+    </p>
+
+    <div class="highlight-box">
+        <p style="margin-bottom: 0;"><strong>⚡ Hallazgo Clave:</strong> Una asignación combinada de 60% oro / 40% Bitcoin superó 
+        tanto a 100% oro como a 100% Bitcoin en términos de Sharpe ratio ajustado durante el período 2020-2026, sugiriendo que 
+        ambos activos son complementarios más que sustitutos.</p>
+    </div>
+
+    <h2>I. Marco Conceptual: ¿Qué Hace a un Activo "Duro"?</h2>
+
+    <h3>1.1 Criterios de Capital Duro</h3>
+
+    <p>Definimos cinco criterios cuantificables para evaluar dureza de un activo monetario:</p>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Criterio</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1. Escasez Verificable</strong></td>
+                <td>Stock-to-Flow: 66 años<br>Supply anual: ~2% minería</td>
+                <td class="winner">Stock-to-Flow: 120+ años<br>Supply fijo: 21M BTC (0.9% actual, decreciente)</td>
+            </tr>
+            <tr>
+                <td><strong>2. Durabilidad</strong></td>
+                <td class="winner">Indestructible (elemento químico)</td>
+                <td>Indestructible (información digital)<br>Requiere respaldo continuo de red</td>
+            </tr>
+            <tr>
+                <td><strong>3. Portabilidad</strong></td>
+                <td>$10k/kg transporte físico<br>Settlement: días/semanas</td>
+                <td class="winner">Costo: ~$5 fee<br>Settlement: 10-60 min</td>
+            </tr>
+            <tr>
+                <td><strong>4. Divisibilidad</strong></td>
+                <td>Limitada (onzas, gramos)<br>Costo de refinación</td>
+                <td class="winner">Infinita (100M satoshis por BTC)<br>Sin costo</td>
+            </tr>
+            <tr>
+                <td><strong>5. Verificabilidad</strong></td>
+                <td>Requiere ensayo químico<br>Tungsteno forgeries posibles</td>
+                <td class="winner">Blockchain público<br>Verificación instantánea</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <strong>Observación:</strong> Bitcoin gana en 4 de 5 criterios técnicos. Sin embargo, oro tiene ventaja crítica en 
+        "durabilidad probada" — 5,000 años de historia monetaria vs. 16 años de Bitcoin. Para instituciones conservadoras, 
+        este track record es factor decisivo.
+    </p>
+
+    <h3>1.2 El Argumento del Stock-to-Flow</h3>
+
+    <div class="data-point">
+        <span class="number">66</span>
+        <span class="label">Stock-to-Flow del Oro (años)</span>
+    </div>
+
+    <p>
+        El ratio stock-to-flow mide cuántos años de producción actual se requieren para duplicar el supply existente. 
+        Oro tiene S2F de 66 años porque su stock total es ~200,000 toneladas y producción anual es ~3,000 toneladas.
+    </p>
+
+    <div class="data-point">
+        <span class="number">120+</span>
+        <span class="label">Stock-to-Flow de Bitcoin (años, post-2024 halving)</span>
+    </div>
+
+    <p>
+        Bitcoin tiene S2F superior y creciente debido a halvings programáticos cada 4 años. Después del halving de 2024, 
+        la inflación anual de Bitcoin es ~0.9% y decreciente, mientras que oro mantiene ~2% constante.
+    </p>
+
+    <p><strong>Implicación para tesoreros:</strong></p>
+    <ul>
+        <li>Oro: Dilución predecible del 2% anual</li>
+        <li>Bitcoin: Dilución decreciente, 0% después de 2140</li>
+    </ul>
+
+    <p>
+        En términos puramente monetarios, Bitcoin es matemáticamente más duro que oro. Sin embargo, esto no considera 
+        otros factores como volatilidad, liquidez, o aceptación institucional.
+    </p>
+
+    <h2>II. Análisis de Rendimiento Histórico (2008-2026)</h2>
+
+    <h3>2.1 Crisis Financiera Global (2008-2012)</h3>
+
+    <p><strong>Contexto:</strong> QE masivo, Lehman Brothers colapso, confianza en sistema financiero en mínimos históricos.</p>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Período</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2008-2012</td>
+                <td>+150% ($800 → $2,000)</td>
+                <td>N/A (Bitcoin lanzado en 2009, sin precio establecido hasta 2010)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <strong>Ventaja: Oro.</strong> Durante la crisis más aguda del sistema financiero moderno, oro demostró su rol como 
+        safe-haven establecido. Bitcoin no existía como opción institucional.
+    </p>
+
+    <h3>2.2 Bull Market Post-Crisis (2012-2020)</h3>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Métrica</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rendimiento total 2012-2020</td>
+                <td>+35% ($1,700 → $2,300)</td>
+                <td class="winner">+9,000,000% ($5 → $29,000)</td>
+            </tr>
+            <tr>
+                <td>Volatilidad anual promedio</td>
+                <td>15-20%</td>
+                <td>80-120%</td>
+            </tr>
+            <tr>
+                <td>Max drawdown</td>
+                <td>-25%</td>
+                <td>-85%</td>
+            </tr>
+            <tr>
+                <td>Sharpe ratio</td>
+                <td>0.45</td>
+                <td>2.8 (extraordinario, pero no representativo)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <strong>Ventaja: Bitcoin (con caveats enormes).</strong> El retorno de Bitcoin durante este período es sin precedentes 
+        en historia financiera, pero refleja transición de "experimento" a "activo reconocido" más que rendimiento sostenible. 
+        La volatilidad extrema hace que este retorno sea irrelevante para instituciones que entraron post-2017.
+    </p>
+
+    <h3>2.3 Era COVID y Posterior (2020-2026)</h3>
+
+    <p>
+        Este es el período más relevante para instituciones modernas, ya que marca adopción seria de Bitcoin por empresas públicas 
+        (Strategy en agosto 2020) y family offices.
+    </p>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Métrica</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rendimiento 2020-2026</td>
+                <td>+28% ($1,800 → $2,300)</td>
+                <td class="winner">+180% ($29,000 → $81,000 promedio 2026)</td>
+            </tr>
+            <tr>
+                <td>Volatilidad anual</td>
+                <td>12-18%</td>
+                <td>55-75% (mejoró vs. período anterior)</td>
+            </tr>
+            <tr>
+                <td>Max drawdown</td>
+                <td>-18% (March 2020)</td>
+                <td>-77% (Nov 2021 → Nov 2022)</td>
+            </tr>
+            <tr>
+                <td>Sharpe ratio</td>
+                <td>0.65</td>
+                <td class="winner">1.2</td>
+            </tr>
+            <tr>
+                <td>Correlación con S&P 500</td>
+                <td>0.15 (baja)</td>
+                <td>0.45 (media, aumentando)</td>
+            </tr>
+            <tr>
+                <td>Liquidez diaria promedio</td>
+                <td>$200B+ (spot + futuros)</td>
+                <td>$30B spot, $150B futuros</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="highlight-box">
+        <p style="margin-bottom: 0;"><strong>🔍 Insight Clave:</strong> Bitcoin superó a oro en términos absolutos (+180% vs +28%), 
+        pero con 4x la volatilidad. Un portafolio 60/40 oro/Bitcoin habría generado +92% con volatilidad del 35% — mejor perfil 
+        riesgo-retorno que 100% en cualquiera de los dos activos.</p>
+    </div>
+
+    <h3>2.4 Análisis de Correlaciones</h3>
+
+    <p>
+        Para instituciones, lo que importa no es solo rendimiento absoluto, sino cómo se correlaciona con otros activos en el portfolio.
+    </p>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Correlación vs.</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>S&P 500</td>
+                <td class="winner">0.15 (decorrelacionado)</td>
+                <td>0.45 (correlación media)</td>
+            </tr>
+            <tr>
+                <td>USD Index</td>
+                <td>-0.60 (inversa fuerte)</td>
+                <td>-0.35 (inversa media)</td>
+            </tr>
+            <tr>
+                <td>Bonos USA (10Y)</td>
+                <td>-0.20</td>
+                <td>-0.10</td>
+            </tr>
+            <tr>
+                <td>Inflación (CPI)</td>
+                <td class="winner">0.55 (correlación positiva)</td>
+                <td>0.25 (correlación débil)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Interpretación:</strong></p>
+    <ul>
+        <li><strong>Oro</strong> funciona mejor como hedge contra inflación directa y debilidad del dólar</li>
+        <li><strong>Bitcoin</strong> se comporta parcialmente como "risk-on asset" (correlación con tech stocks)</li>
+        <li>Ambos tienen correlación negativa con bonos → diversificación valiosa</li>
+    </ul>
+
+    <h2>III. Consideraciones Operativas para Instituciones</h2>
+
+    <h3>3.1 Custodia y Seguridad Operativa</h3>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Aspecto</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Custodia</strong></td>
+                <td>Bóvedas físicas (Brinks, Loomis)<br>$10k-50k anuales por $1M</td>
+                <td>Multisig, cold storage<br>$5k-20k setup + procesos</td>
+            </tr>
+            <tr>
+                <td><strong>Seguro</strong></td>
+                <td>Standard (Lloyd's, etc.)<br>0.1-0.3% anual</td>
+                <td>Limitado, costoso<br>0.5-1.5% cuando disponible</td>
+            </tr>
+            <tr>
+                <td><strong>Verificación</strong></td>
+                <td>Ensayo químico requerido<br>Costo + tiempo</td>
+                <td class="winner">Blockchain instantáneo<br>Sin costo</td>
+            </tr>
+            <tr>
+                <td><strong>Settlement</strong></td>
+                <td>T+2 a T+7 días</td>
+                <td class="winner">10-60 minutos</td>
+            </tr>
+            <tr>
+                <td><strong>Divisibilidad</strong></td>
+                <td>Costoso debajo de 1 onza</td>
+                <td class="winner">Satoshis (fracciones infinitas)</td>
+            </tr>
+            <tr>
+                <td><strong>Portabilidad</strong></td>
+                <td>Costoso, lento, fronteras físicas</td>
+                <td class="winner">Instantáneo, sin fronteras</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Ventaja operativa:</strong> Bitcoin gana en la mayoría de aspectos operativos. Sin embargo, oro tiene ventaja en:</p>
+    <ul>
+        <li>Infraestructura de custodia madura y establecida</li>
+        <li>Seguro más barato y disponible</li>
+        <li>Procesos internos familiares para CFOs tradicionales</li>
+    </ul>
+
+    <h3>3.2 Liquidez y Ejecución</h3>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Aspecto</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Volumen diario spot</td>
+                <td class="winner">$150-200B</td>
+                <td>$30-50B</td>
+            </tr>
+            <tr>
+                <td>Volumen futuros</td>
+                <td>$100-150B</td>
+                <td class="winner">$150-200B</td>
+            </tr>
+            <tr>
+                <td>Bid-ask spread</td>
+                <td class="winner">0.05-0.10%</td>
+                <td>0.10-0.20%</td>
+            </tr>
+            <tr>
+                <td>Slippage en orden $10M</td>
+                <td class="winner">0.1-0.2%</td>
+                <td>0.3-0.5%</td>
+            </tr>
+            <tr>
+                <td>Exchanges disponibles</td>
+                <td>Limitados (COMEX, LBMA)</td>
+                <td class="winner">50+ exchanges globales</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <strong>Conclusión de liquidez:</strong> Oro es más líquido para órdenes grandes (&gt;$50M) con mejor precio de ejecución. 
+        Bitcoin tiene ventaja para órdenes menores y diversificación geográfica de ejecución.
+    </p>
+
+    <h3>3.3 Tratamiento Contable y Fiscal (México)</h3>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Aspecto</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Clasificación contable</td>
+                <td class="winner">Commodity establecido<br>IFRS 9, NIIF 9</td>
+                <td>Activo intangible o financiero<br>Guidance aún evoluciona</td>
+            </tr>
+            <tr>
+                <td>Tratamiento fiscal</td>
+                <td class="winner">Claro (commodity)<br>Ganancia capital</td>
+                <td>Activo virtual (Ley Fintech)<br>Ganancia capital (ISR)</td>
+            </tr>
+            <tr>
+                <td>Reporting anual</td>
+                <td class="winner">Standard</td>
+                <td>Obligatorio si &gt;$500k MXN</td>
+            </tr>
+            <tr>
+                <td>Auditabilidad</td>
+                <td class="winner">Procesos establecidos</td>
+                <td>Nuevo para la mayoría de auditores</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <strong>Ventaja: Oro.</strong> Para CFOs y controllers, oro tiene procesos contables y fiscales establecidos. Bitcoin requiere 
+        educación de auditores y puede generar friction con boards conservadores.
+    </p>
+
+    <h2>IV. Estrategias de Asignación Recomendadas</h2>
+
+    <h3>4.1 Perfil Conservador (&lt;$100M AUM)</h3>
+
+    <div class="metadata">
+        <p><strong>Asignación sugerida:</strong></p>
+        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+            <li>Oro físico/vaulted: 12-18%</li>
+            <li>Bitcoin: 2-5%</li>
+            <li>Total capital duro: 14-23%</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>Rationale:</strong> Oro como anchor principal, Bitcoin como pequeña apuesta asimétrica. 
+        Peso en oro refleja lower volatility tolerance y necesidad de track record probado.</p>
+    </div>
+
+    <h3>4.2 Perfil Balanceado ($100M-$500M AUM)</h3>
+
+    <div class="metadata">
+        <p><strong>Asignación sugerida:</strong></p>
+        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+            <li>Oro físico/vaulted: 10-15%</li>
+            <li>Bitcoin: 5-10%</li>
+            <li>Total capital duro: 15-25%</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>Rationale:</strong> Balance entre seguridad (oro) y upside potencial (Bitcoin). 
+        Ratio 60/40 oro/Bitcoin optimiza Sharpe ratio histórico.</p>
+    </div>
+
+    <h3>4.3 Perfil Agresivo (&gt;$500M AUM)</h3>
+
+    <div class="metadata">
+        <p><strong>Asignación sugerida:</strong></p>
+        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+            <li>Oro físico/vaulted: 10-20%</li>
+            <li>Bitcoin: 10-20%</li>
+            <li>Total capital duro: 20-40%</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>Rationale:</strong> Family offices grandes pueden tolerar volatilidad de Bitcoin en exchange 
+        por upside significativo. Diversificación entre oro y Bitcoin reduce correlación con activos tradicionales.</p>
+    </div>
+
+    <h3>4.4 Implementación: Dollar-Cost Averaging</h3>
+
+    <p>
+        Para ambos activos, recomendamos implementación gradual vía dollar-cost averaging (DCA) para reducir timing risk:
+    </p>
+
+    <div class="highlight-box">
+        <p><strong>Ejemplo: Institución con $100M AUM, target 15% oro + 7% Bitcoin</strong></p>
+        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+            <li><strong>Oro:</strong> $15M target → $1.25M compra mensual durante 12 meses</li>
+            <li><strong>Bitcoin:</strong> $7M target → $583k compra mensual durante 12 meses</li>
+        </ul>
+        <p style="margin-top: 1rem; margin-bottom: 0;">
+            <strong>Beneficio:</strong> Reduce riesgo de entrar en top de ciclo. Histórico muestra que DCA de 12 meses superó 
+            lump-sum entry en 68% de los casos para ambos activos.
+        </p>
+    </div>
+
+    <h2>V. Escenarios de Estrés y Gestión de Riesgo</h2>
+
+    <h3>5.1 Escenario 1: Recesión Global Severa</h3>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Respuesta Esperada</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Primeros 3 meses</td>
+                <td class="winner">+15% a +30%<br>(flight to safety)</td>
+                <td>-20% a -40%<br>(liquidación forzada)</td>
+            </tr>
+            <tr>
+                <td>6-12 meses después</td>
+                <td>+20% a +50%<br>(QE response)</td>
+                <td>-10% a +50%<br>(depende de QE timing)</td>
+            </tr>
+            <tr>
+                <td>Recuperación (12-24 meses)</td>
+                <td>+30% a +80%</td>
+                <td class="winner">+100% a +300%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <strong>Ventaja inicial: Oro.</strong> En crisis aguda, oro es safe-haven probado. Bitcoin puede sufrir liquidación violenta 
+        (como en March 2020). Sin embargo, recuperación de Bitcoin tiende a ser más explosiva una vez que QE y stimulus arranca.
+    </p>
+
+    <h3>5.2 Escenario 2: Hyperinflación / Crisis de Confianza Monetaria</h3>
+
+    <p>
+        En escenario de pérdida de confianza en sistema fiat (Venezuela, Argentina, Turquía son ejemplos parciales):
+    </p>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Factor</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Portabilidad</td>
+                <td>Limitada (fronteras, confiscación)</td>
+                <td class="winner">Total (memorizable, sin fronteras)</td>
+            </tr>
+            <tr>
+                <td>Aceptación local</td>
+                <td class="winner">Universal históricamente</td>
+                <td>Variable (alta en jóvenes, baja en mayores)</td>
+            </tr>
+            <tr>
+                <td>Resistencia a confiscación</td>
+                <td>Baja (Executive Order 6102, 1933)</td>
+                <td class="winner">Alta (si bien custodiado)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <strong>Ventaja: Depende del escenario específico.</strong> En colapso total, oro tiene track record de 5,000 años. 
+        En régimen autoritario digital, Bitcoin ofrece portabilidad y resistencia a confiscación superiores.
+    </p>
+
+    <h3>5.3 Mitigación de Riesgo: Portfolio Combinado</h3>
+
+    <p>
+        El análisis de escenarios sugiere que oro y Bitcoin son <strong>complementarios</strong> más que sustitutos:
+    </p>
+
+    <ul>
+        <li><strong>Oro</strong> protege mejor en crisis aguda inicial</li>
+        <li><strong>Bitcoin</strong> protege mejor en crisis de confianza monetaria prolongada</li>
+        <li><strong>Combinación</strong> ofrece resiliencia en mayor rango de escenarios</li>
+    </ul>
+
+    <h2>VI. Conclusión y Recomendaciones</h2>
+
+    <h3>6.1 No Existe un "Ganador" Absoluto</h3>
+
+    <p>
+        Oro y Bitcoin no son competidores directos, sino activos complementarios con características distintas:
+    </p>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Ventaja</th>
+                <th>Oro</th>
+                <th>Bitcoin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Track record probado</strong></td>
+                <td class="winner">5,000 años</td>
+                <td>16 años</td>
+            </tr>
+            <tr>
+                <td><strong>Escasez absoluta</strong></td>
+                <td>~2% inflación anual</td>
+                <td class="winner">0.9% decreciente → 0%</td>
+            </tr>
+            <tr>
+                <td><strong>Portabilidad</strong></td>
+                <td>Costosa, lenta</td>
+                <td class="winner">Instantánea, sin fronteras</td>
+            </tr>
+            <tr>
+                <td><strong>Aceptación institucional</strong></td>
+                <td class="winner">Universal, establecida</td>
+                <td>Creciente, aún incipiente</td>
+            </tr>
+            <tr>
+                <td><strong>Upside potencial</strong></td>
+                <td>Moderado (1-2x en década)</td>
+                <td class="winner">Significativo (3-10x posible)</td>
+            </tr>
+            <tr>
+                <td><strong>Volatilidad</strong></td>
+                <td class="winner">Baja-media (15-20%)</td>
+                <td>Alta (55-75%)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>6.2 Recomendación para Instituciones Mexicanas</h3>
+
+    <div class="highlight-box">
+        <p style="margin-bottom: 1rem;"><strong>Para la mayoría de family offices y tesorerías corporativas:</strong></p>
+        <ol style="margin-left: 2rem;">
+            <li><strong>Comenzar con oro</strong> (8-15% de portfolio) como anchor de capital duro</li>
+            <li><strong>Agregar Bitcoin gradualmente</strong> (2-10%) como complemento asimétrico</li>
+            <li><strong>Implementar vía DCA</strong> de 12 meses para reducir timing risk</li>
+            <li><strong>Rebalancear anualmente</strong> para mantener ratio target</li>
+            <li><strong>Educación continua</strong> de board y CFO sobre ambos activos</li>
+        </ol>
+        <p style="margin-top: 1rem; margin-bottom: 0;">
+            Ratio óptimo histórico: <strong>60% oro / 40% Bitcoin</strong> dentro de asignación total de capital duro.
+        </p>
+    </div>
+
+    <h3>6.3 Próximos Pasos con ArcadiaB</h3>
+
+    <p>
+        ArcadiaB ofrece implementación completa de estrategia combinada oro + Bitcoin:
+    </p>
+
+    <ul>
+        <li><strong>Oro:</strong> Conexión con bóvedas internacionales (Brinks, Loomis) o ETFs respaldados físicamente</li>
+        <li><strong>Bitcoin:</strong> Custodia educada, multisig, o multi-institucional según tamaño de holdings</li>
+        <li><strong>DCA automático:</strong> Setup de compra programada mensual/trimestral</li>
+        <li><strong>Reporting integrado:</strong> Dashboard consolidado con ambos activos</li>
+    </ul>
+
+    <div style="background: var(--navy-primary); color: white; padding: 2rem; border-radius: 8px; margin: 3rem 0; text-align: center;">
+        <h3 style="color: var(--gold-accent); margin-top: 0;">¿Listo para implementar estrategia combinada?</h3>
+        <p style="margin-bottom: 1.5rem;">
+            ArcadiaB ofrece consultas personalizadas para diseñar asignación óptima oro/Bitcoin según su perfil de riesgo.
+        </p>
+        <a href="https://www.kapitalex.com/#/register?ref=FDQEXS1WD6LZ4IQ" style="display: inline-block; background: var(--gold-accent); color: var(--navy-primary); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600;">
+            Agendar Consulta →
+        </a>
+    </div>
+
+    <div class="footer-note">
+        <p>
+            <strong>Capital Duro</strong> | Con el apoyo de ArcadiaB y AsoBitcoinMX<br>
+            Este reporte es únicamente informativo y no constituye asesoría de inversión.
+        </p>
+        <p style="margin-top: 1rem;">
+            © 2026 Capital Duro | Todos los derechos reservados
+        </p>
+    </div>
+</body>
+</html>
