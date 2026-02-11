@@ -8,17 +8,144 @@
     <style>
         :root {
             --navy-primary: #1a2332;
+            --navy-dark: #0f1419;
             --gold-accent: #d4af37;
+            --gold-light: #e8c76f;
             --warm-white: #fafaf8;
             --medium-gray: #6b7280;
             --light-gray: #f3f4f6;
         }
         
+        /* PORTADA PROFESIONAL */
+        .professional-cover {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 50%, #2d3748 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+        
+        .professional-cover::before {
+            content: '₿';
+            position: absolute;
+            font-size: 40rem;
+            color: rgba(212, 175, 55, 0.03);
+            right: -8rem;
+            bottom: -12rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+        
+        .cover-header {
+            z-index: 2;
+        }
+        
+        .cover-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cover-tagline {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        
+        .cover-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .cover-category {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .cover-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+        
+        .cover-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .meta-item {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+        
+        .meta-item strong {
+            display: block;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .cover-footer {
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+        
+        .cover-partners {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* CONTENIDO DEL REPORTE */
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.8;
             color: var(--navy-primary);
             background: var(--warm-white);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .report-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 3rem 2rem;
@@ -47,28 +174,6 @@
             margin-top: 2rem;
             margin-bottom: 0.75rem;
             color: var(--navy-primary);
-        }
-        
-        .cover {
-            text-align: center;
-            padding: 4rem 0;
-            border-bottom: 3px solid var(--gold-accent);
-            margin-bottom: 3rem;
-        }
-        
-        .cover-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--navy-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .cover-subtitle {
-            font-size: 0.9rem;
-            color: var(--gold-accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 3rem;
         }
         
         .metadata {
@@ -130,345 +235,401 @@
         }
         
         @media print {
-            body {
-                background: white;
+            .professional-cover {
+                page-break-after: always;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cover-title {
+                font-size: 2.5rem;
+            }
+            .cover-subtitle {
+                font-size: 1.1rem;
+            }
+            .professional-cover::before {
+                font-size: 20rem;
+                right: -4rem;
+                bottom: -6rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cover">
-        <div class="cover-logo">CAPITAL DURO</div>
-        <div class="cover-subtitle">Reporte Institucional 2026</div>
-        <h1>Marco Estratégico de Capital Duro<br>para Family Offices Mexicanas</h1>
-        <p style="font-size: 1.1rem; color: var(--medium-gray); margin-top: 2rem;">
-            Análisis de activos resistentes a la devaluación monetaria<br>
-            en el contexto de expansión M2 y transformación del sistema financiero global
-        </p>
+    <!-- PORTADA PROFESIONAL -->
+    <div class="professional-cover">
+        <div class="cover-header">
+            <div class="cover-logo">CAPITAL DURO</div>
+            <div class="cover-tagline">Investigación Institucional</div>
+        </div>
+        
+        <div class="cover-content">
+            <div class="cover-category">Reporte Estratégico 2026</div>
+            
+            <h1 class="cover-title">Marco Estratégico de Capital Duro<br>para Family Offices Mexicanas</h1>
+            
+            <p class="cover-subtitle">
+                Análisis de activos resistentes a la devaluación monetaria en el contexto de expansión M2 
+                y transformación del sistema financiero global
+            </p>
+            
+            <div class="cover-metadata">
+                <div class="meta-item">
+                    <strong>Fecha de Publicación</strong>
+                    Febrero 2026
+                </div>
+                <div class="meta-item">
+                    <strong>Autor Principal</strong>
+                    Equipo de Investigación Capital Duro
+                </div>
+                <div class="meta-item">
+                    <strong>Editor</strong>
+                    Boyd Cohen, PhD<br>CSO, ArcadiaB
+                </div>
+                <div class="meta-item">
+                    <strong>Clasificación</strong>
+                    Uso Institucional
+                </div>
+                <div class="meta-item">
+                    <strong>Audiencia</strong>
+                    Family Offices, CFOs, Tesoreros
+                </div>
+                <div class="meta-item">
+                    <strong>Extensión</strong>
+                    42 páginas
+                </div>
+            </div>
+        </div>
+        
+        <div class="cover-footer">
+            <div class="cover-partners">
+                <span class="partner-logo">ArcadiaB</span>
+                <span style="color: rgba(255,255,255,0.3);">×</span>
+                <span class="partner-logo">AsoBitcoinMX</span>
+            </div>
+            <div>
+                © 2026 Capital Duro
+            </div>
+        </div>
     </div>
 
-    <div class="metadata">
-        <p><strong>Publicado:</strong> Febrero 2026</p>
-        <p><strong>Autor:</strong> Equipo de Investigación Capital Duro</p>
-        <p><strong>Editor:</strong> Boyd Cohen, PhD (CSO, ArcadiaB)</p>
-        <p><strong>Páginas:</strong> 42</p>
-        <p><strong>Clasificación:</strong> Uso Institucional - Family Offices, CFOs, Tesoreros</p>
-    </div>
+    <!-- CONTENIDO DEL REPORTE -->
+    <div class="report-content">
+        <h2>Resumen Ejecutivo</h2>
 
-    <h2>Resumen Ejecutivo</h2>
-
-    <p>
-        Las family offices mexicanas enfrentan un entorno monetario sin precedentes: expansión M2 del 12.3% anual en México, 
-        tasas de interés reales negativas persistentes, y un peso mexicano sujeto a presiones estructurales de largo plazo. 
-        En este contexto, la preservación de capital requiere estrategias que vayan más allá de las asignaciones tradicionales 
-        de bonos y acciones.
-    </p>
-
-    <p>
-        Este reporte presenta un marco estratégico basado en tres pilares de "capital duro" — activos con características 
-        de escasez verificable, resistencia a la manipulación gubernamental, y portabilidad transfronteriza. Analizamos 
-        la tesis de inversión, vehículos de implementación, y consideraciones operativas para family offices que buscan 
-        proteger patrimonio generacional contra la erosión monetaria.
-    </p>
-
-    <div class="highlight-box">
-        <p style="margin-bottom: 0;"><strong>⚡ Hallazgo Clave:</strong> Family offices que asignaron 5-15% de portfolio a activos de capital 
-        duro entre 2020-2025 superaron inflación acumulada por 38 puntos porcentuales, mientras que portafolios tradicionales 
-        60/40 apenas mantuvieron poder adquisitivo.</p>
-    </div>
-
-    <h2>I. El Problema: Devaluación Monetaria Acelerada</h2>
-
-    <h3>1.1 Expansión M2 en México: Los Números</h3>
-
-    <div class="data-point">
-        <span class="number">12.3%</span>
-        <span class="label">Expansión M2 año sobre año (Diciembre 2025)</span>
-    </div>
-
-    <p>
-        El Banco de México reportó un crecimiento de la oferta monetaria amplia de MXN $15.8 billones a MXN $17.7 billones 
-        en 12 meses. Esta expansión de MXN $1.9 billones representa dinero nuevo inyectado al sistema sin crecimiento 
-        económico real correspondiente.
-    </p>
-
-    <p><strong>Contexto histórico:</strong></p>
-    <ul>
-        <li>Pre-COVID (2019): M2 crecía 5-7% anual</li>
-        <li>COVID peak (2020): 18% expansión</li>
-        <li>2021-2023: Normalización a 8-10%</li>
-        <li>2024-2025: Re-aceleración a 12%+</li>
-    </ul>
-
-    <p>
-        <strong>Por qué importa para family offices:</strong> Cada punto porcentual de expansión M2 por encima del crecimiento 
-        económico real (PIB) representa dilución directa del poder adquisitivo de efectivo y bonos denominados en pesos. 
-        Con PIB real creciendo 2-3% y M2 expandiéndose 12%, la brecha de 9-10 puntos porcentuales se traduce en erosión 
-        estructural de patrimonio líquido.
-    </p>
-
-    <h3>1.2 Tasas Reales Negativas: El Costo Invisible</h3>
-
-    <p>
-        A febrero 2026, la tasa de referencia de Banxico se ubica en 9.5%, mientras que inflación oficial (INPC) registra 4.8%. 
-        Esto implica una tasa real del 4.7%, positiva en términos nominales pero insuficiente cuando se considera:
-    </p>
-
-    <ol>
-        <li><strong>Inflación subyacente:</strong> 6.2% (excluye subsidios temporales)</li>
-        <li><strong>Inflación experimentada por UHNW:</strong> 7-9% (bienes importados, servicios premium, educación internacional)</li>
-        <li><strong>Impuestos sobre intereses:</strong> Reducen rendimiento efectivo ~30%</li>
-    </ol>
-
-    <p>
-        <strong>Resultado:</strong> Mantener capital en CETES o bonos gubernamentales genera pérdida de poder adquisitivo 
-        real del 2-4% anual para family offices. Repetido durante 10 años, esto equivale a erosión del 20-40% del patrimonio.
-    </p>
-
-    <h3>1.3 Riesgo Estructural del Peso Mexicano</h3>
-
-    <p>
-        Más allá de la política monetaria doméstica, el peso enfrenta presiones estructurales de mediano plazo:
-    </p>
-
-    <ul>
-        <li><strong>Déficit fiscal creciente:</strong> 5.9% del PIB en 2025, requiere financiamiento continuo</li>
-        <li><strong>Dependencia de flujos de capital:</strong> Inversión extranjera volátil en bonos gubernamentales</li>
-        <li><strong>Transición energética:</strong> Importación neta de petróleo presiona balanza comercial</li>
-        <li><strong>Demografía:</strong> Envejecimiento poblacional aumenta gasto social sin aumento proporcional de productividad</li>
-    </ul>
-
-    <div class="highlight-box">
-        <p style="margin-bottom: 0;"><strong>🔍 Caso de Estudio:</strong> En 2022, un shock de USD fortaleza + Fed hiking cycle provocó 
-        depreciación del peso de 15% en 6 meses. Family offices con 100% de patrimonio en pesos perdieron $15M USD de poder 
-        adquisitivo internacional por cada $100M de patrimonio. Aquellos con diversificación en activos duros mitigaron pérdida en 60-80%.</p>
-    </div>
-
-    <h2>II. La Solución: Marco de Capital Duro</h2>
-
-    <h3>2.1 Definición de Capital Duro</h3>
-
-    <p>
-        Definimos <strong>capital duro</strong> como activos con las siguientes características verificables:
-    </p>
-
-    <ol>
-        <li><strong>Escasez absoluta o relativa:</strong> Supply limitado por naturaleza o protocolo, no por decisión política</li>
-        <li><strong>No-confiscabilidad:</strong> Difícil o imposible de expropiar unilateralmente por gobiernos</li>
-        <li><strong>Portabilidad:</strong> Puede ser movido transfronterizamente con costos razonables</li>
-        <li><strong>Verificabilidad:</strong> Autenticidad y cantidad pueden ser confirmadas independientemente</li>
-        <li><strong>Track record histórico:</strong> Ha preservado valor a través de regímenes monetarios anteriores</li>
-    </ol>
-
-    <p><strong>Activos que califican:</strong></p>
-    <ul>
-        <li>Oro físico y vaulted</li>
-        <li>Bitcoin (escasez programática verificable)</li>
-        <li>Real estate de alta demanda (con caveats de liquidez)</li>
-        <li>Commodities estratégicos (con caveats de storage)</li>
-    </ul>
-
-    <h3>2.2 Por Qué Bitcoin Emerge como Activo Institucional</h3>
-
-    <p>
-        Bitcoin presenta características únicas que lo posicionan como capital duro óptimo para el entorno actual:
-    </p>
-
-    <div class="data-point">
-        <span class="number">21M</span>
-        <span class="label">Supply máximo absoluto (hard cap programático)</span>
-    </div>
-
-    <p><strong>Ventajas sobre activos tradicionales:</strong></p>
-
-    <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
-        <thead style="background: var(--navy-primary); color: white;">
-            <tr>
-                <th style="padding: 1rem; text-align: left;">Característica</th>
-                <th style="padding: 1rem;">Oro</th>
-                <th style="padding: 1rem;">Bitcoin</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="background: var(--light-gray);">
-                <td style="padding: 1rem;"><strong>Portabilidad</strong></td>
-                <td style="padding: 1rem;">Costoso, lento</td>
-                <td style="padding: 1rem;">Instantáneo, sin fricción</td>
-            </tr>
-            <tr>
-                <td style="padding: 1rem;"><strong>Verificabilidad</strong></td>
-                <td style="padding: 1rem;">Requiere ensayo</td>
-                <td style="padding: 1rem;">Blockchain público verificable</td>
-            </tr>
-            <tr style="background: var(--light-gray);">
-                <td style="padding: 1rem;"><strong>Divisibilidad</strong></td>
-                <td style="padding: 1rem;">Limitada (barras, onzas)</td>
-                <td style="padding: 1rem;">Infinita (satoshis)</td>
-            </tr>
-            <tr>
-                <td style="padding: 1rem;"><strong>Custodia</strong></td>
-                <td style="padding: 1rem;">Bóvedas, seguridad física</td>
-                <td style="padding: 1rem;">Multisig, self-custody posible</td>
-            </tr>
-            <tr style="background: var(--light-gray);">
-                <td style="padding: 1rem;"><strong>Supply</strong></td>
-                <td style="padding: 1rem;">~2% anual (minería)</td>
-                <td style="padding: 1rem;">Decreciente, 0% después de 2140</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3>2.3 Casos de Adopción Institucional</h3>
-
-    <p>
-        La tesis de Bitcoin como activo de tesorería corporativa ya está validada por empresas públicas:
-    </p>
-
-    <ul>
-        <li><strong>Strategy:</strong> 714,644 BTC (Feb 2026), +1,989% ROI desde anuncio agosto 2020</li>
-        <li><strong>Metaplanet (Japón):</strong> 35,102 BTC, empresa mediana ($55M market cap inicial) con +580% en 8 meses</li>
-        <li><strong>El Salvador:</strong> 7,559 BTC en reservas nacionales</li>
-    </ul>
-
-    <p>
-        <strong>Lección para family offices:</strong> No se requiere ser gigante. Metaplanet demostró que empresas medianas 
-        pueden implementar estrategia Bitcoin de manera conservadora con resultados excepcionales. Para family offices con 
-        $50M-$500M en AUM, una asignación del 5-10% representa balance adecuado entre preservación y upside potencial.
-    </p>
-
-    <h2>III. Implementación Práctica</h2>
-
-    <h3>3.1 Asignación Recomendada por Perfil</h3>
-
-    <div class="metadata">
-        <p><strong>Conservador ($50M-$100M AUM):</strong></p>
-        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-            <li>Oro físico/vaulted: 10-15%</li>
-            <li>Bitcoin: 2-5%</li>
-            <li>Real estate internacional: 5-10%</li>
-            <li>Total capital duro: 17-30%</li>
-        </ul>
-    </div>
-
-    <div class="metadata">
-        <p><strong>Balanceado ($100M-$500M AUM):</strong></p>
-        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-            <li>Oro físico/vaulted: 10-20%</li>
-            <li>Bitcoin: 5-10%</li>
-            <li>Real estate internacional: 10-15%</li>
-            <li>Total capital duro: 25-45%</li>
-        </ul>
-    </div>
-
-    <div class="metadata">
-        <p><strong>Agresivo (&gt;$500M AUM):</strong></p>
-        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-            <li>Oro físico/vaulted: 15-25%</li>
-            <li>Bitcoin: 10-15%</li>
-            <li>Real estate internacional: 15-20%</li>
-            <li>Total capital duro: 40-60%</li>
-        </ul>
-    </div>
-
-    <h3>3.2 Vehículos de Implementación</h3>
-
-    <p><strong>Para Bitcoin:</strong></p>
-    <ol>
-        <li><strong>Auto-custodia con educación:</strong> ArcadiaB ofrece capacitación para family offices que quieren control total</li>
-        <li><strong>Multisig con ArcadiaB:</strong> Cliente controla 2 llaves, ArcadiaB 1 recovery</li>
-        <li><strong>Multisig multi-institucional:</strong> Para holdings &gt;$100M, distribución geográfica de llaves</li>
-    </ol>
-
-    <p><strong>Para Oro:</strong></p>
-    <ol>
-        <li><strong>Bóvedas internacionales:</strong> Brinks, Loomis (Suiza, Singapur)</li>
-        <li><strong>ETFs respaldados físicamente:</strong> IAU, GLD (con caveats de counterparty risk)</li>
-        <li><strong>Oro físico local:</strong> Solo para cantidades menores (&lt;$5M)</li>
-    </ol>
-
-    <h2>IV. Gestión de Riesgos</h2>
-
-    <h3>4.1 Riesgos de Bitcoin</h3>
-
-    <ul>
-        <li><strong>Volatilidad:</strong> Drawdowns del 50-80% en bear markets son normales</li>
-        <li><strong>Regulación:</strong> Claridad regulatoria aún evoluciona en México</li>
-        <li><strong>Custodia:</strong> Requiere procesos operativos robustos</li>
-        <li><strong>Tecnología:</strong> Curva de aprendizaje técnica para family office tradicional</li>
-    </ul>
-
-    <p><strong>Mitigación:</strong></p>
-    <ul>
-        <li>Asignación conservadora (2-10% total portfolio)</li>
-        <li>Dollar-cost averaging (compra mensual/trimestral)</li>
-        <li>Horizonte de inversión mínimo 4 años</li>
-        <li>Capacitación técnica con ArcadiaB</li>
-    </ul>
-
-    <h3>4.2 Consideraciones Fiscales (México)</h3>
-
-    <p>
-        Bitcoin es tratado como "activo virtual" bajo la Ley Fintech. Implicaciones:
-    </p>
-
-    <ul>
-        <li><strong>Compra/tenencia:</strong> No genera impuesto</li>
-        <li><strong>Venta:</strong> Ganancia de capital sujeta a ISR (tasa progresiva hasta 35%)</li>
-        <li><strong>Herencia:</strong> Tratamiento similar a otros activos financieros</li>
-        <li><strong>Declaración anual:</strong> Obligatoria si valor &gt;$500k MXN</li>
-    </ul>
-
-    <div class="highlight-box">
-        <p style="margin-bottom: 0;"><strong>💡 Estrategia Fiscal:</strong> Para family offices, considerar estructurar holdings Bitcoin 
-        en vehículo corporativo (S.A. de C.V.) para aprovechar tasa corporativa del 30% vs. tasa personal progresiva hasta 35%. 
-        Consultar con asesor fiscal antes de implementar.</p>
-    </div>
-
-    <h2>V. Conclusión y Próximos Pasos</h2>
-
-    <p>
-        El entorno monetario actual presenta riesgos sin precedentes para family offices mexicanas que mantienen patrimonio 
-        predominantemente en pesos y activos denominados en pesos. La expansión M2 del 12%, tasas reales negativas después 
-        de impuestos, y presiones estructurales sobre el peso mexicano hacen imperativo considerar estrategias de capital duro.
-    </p>
-
-    <p>
-        Bitcoin, oro, y real estate internacional ofrecen características complementarias de preservación de capital. 
-        La evidencia empírica de adopción institucional global (Strategy, Metaplanet, El Salvador) valida la tesis de 
-        Bitcoin como activo de tesorería viable. Para family offices mexicanas, una asignación balanceada del 5-15% en 
-        capital duro puede proveer protección significativa contra erosión monetaria sin introducir volatilidad excesiva.
-    </p>
-
-    <div class="highlight-box">
-        <p style="margin-bottom: 0;"><strong>🚀 Próximos Pasos Recomendados:</strong></p>
-        <ol style="margin-left: 2rem; margin-top: 0.5rem;">
-            <li>Evaluar exposición actual a devaluación monetaria</li>
-            <li>Consulta con ArcadiaB para diseño de asignación personalizada</li>
-            <li>Capacitación técnica en custodia Bitcoin (si aplica auto-custodia)</li>
-            <li>Implementación gradual vía dollar-cost averaging</li>
-            <li>Revisión trimestral de asignación y rebalanceo</li>
-        </ol>
-    </div>
-
-    <div style="background: var(--navy-primary); color: white; padding: 2rem; border-radius: 8px; margin: 3rem 0; text-align: center;">
-        <h3 style="color: var(--gold-accent); margin-top: 0;">¿Listo para proteger su patrimonio?</h3>
-        <p style="margin-bottom: 1.5rem;">
-            ArcadiaB ofrece consultas personalizadas para family offices mexicanas. Analizamos su situación específica 
-            y diseñamos estrategia de capital duro adaptada a su perfil de riesgo.
-        </p>
-        <a href="https://www.kapitalex.com/#/register?ref=FDQEXS1WD6LZ4IQ" style="display: inline-block; background: var(--gold-accent); color: var(--navy-primary); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600;">
-            Agendar Consulta →
-        </a>
-    </div>
-
-    <div class="footer-note">
         <p>
-            <strong>Capital Duro</strong> | Con el apoyo de ArcadiaB y AsoBitcoinMX<br>
-            Este reporte es únicamente informativo y no constituye asesoría de inversión.
+            Las family offices mexicanas enfrentan un entorno monetario sin precedentes: expansión M2 del 12.3% anual en México, 
+            tasas de interés reales negativas persistentes, y un peso mexicano sujeto a presiones estructurales de largo plazo. 
+            En este contexto, la preservación de capital requiere estrategias que vayan más allá de las asignaciones tradicionales 
+            de bonos y acciones.
         </p>
-        <p style="margin-top: 1rem;">
-            © 2026 Capital Duro | Todos los derechos reservados
+
+        <p>
+            Este reporte presenta un marco estratégico basado en tres pilares de "capital duro" — activos con características 
+            de escasez verificable, resistencia a la manipulación gubernamental, y portabilidad transfronteriza. Analizamos 
+            la tesis de inversión, vehículos de implementación, y consideraciones operativas para family offices que buscan 
+            proteger patrimonio generacional contra la erosión monetaria.
         </p>
+
+        <div class="highlight-box">
+            <p style="margin-bottom: 0;"><strong>⚡ Hallazgo Clave:</strong> Family offices que asignaron 5-15% de portfolio a activos de capital 
+            duro entre 2020-2025 superaron inflación acumulada por 38 puntos porcentuales, mientras que portafolios tradicionales 
+            60/40 apenas mantuvieron poder adquisitivo.</p>
+        </div>
+
+        <h2>I. El Problema: Devaluación Monetaria Acelerada</h2>
+
+        <h3>1.1 Expansión M2 en México: Los Números</h3>
+
+        <div class="data-point">
+            <span class="number">12.3%</span>
+            <span class="label">Expansión M2 año sobre año (Diciembre 2025)</span>
+        </div>
+
+        <p>
+            El Banco de México reportó un crecimiento de la oferta monetaria amplia de MXN $15.8 billones a MXN $17.7 billones 
+            en 12 meses. Esta expansión de MXN $1.9 billones representa dinero nuevo inyectado al sistema sin crecimiento 
+            económico real correspondiente.
+        </p>
+
+        <p><strong>Contexto histórico:</strong></p>
+        <ul>
+            <li>Pre-COVID (2019): M2 crecía 5-7% anual</li>
+            <li>COVID peak (2020): 18% expansión</li>
+            <li>2021-2023: Normalización a 8-10%</li>
+            <li>2024-2025: Re-aceleración a 12%+</li>
+        </ul>
+
+        <p>
+            <strong>Por qué importa para family offices:</strong> Cada punto porcentual de expansión M2 por encima del crecimiento 
+            económico real (PIB) representa dilución directa del poder adquisitivo de efectivo y bonos denominados en pesos. 
+            Con PIB real creciendo 2-3% y M2 expandiéndose 12%, la brecha de 9-10 puntos porcentuales se traduce en erosión 
+            estructural de patrimonio líquido.
+        </p>
+
+        <h3>1.2 Tasas Reales Negativas: El Costo Invisible</h3>
+
+        <p>
+            A febrero 2026, la tasa de referencia de Banxico se ubica en 9.5%, mientras que inflación oficial (INPC) registra 4.8%. 
+            Esto implica una tasa real del 4.7%, positiva en términos nominales pero insuficiente cuando se considera:
+        </p>
+
+        <ol>
+            <li><strong>Inflación subyacente:</strong> 6.2% (excluye subsidios temporales)</li>
+            <li><strong>Inflación experimentada por UHNW:</strong> 7-9% (bienes importados, servicios premium, educación internacional)</li>
+            <li><strong>Impuestos sobre intereses:</strong> Reducen rendimiento efectivo ~30%</li>
+        </ol>
+
+        <p>
+            <strong>Resultado:</strong> Mantener capital en CETES o bonos gubernamentales genera pérdida de poder adquisitivo 
+            real del 2-4% anual para family offices. Repetido durante 10 años, esto equivale a erosión del 20-40% del patrimonio.
+        </p>
+
+        <h3>1.3 Riesgo Estructural del Peso Mexicano</h3>
+
+        <p>
+            Más allá de la política monetaria doméstica, el peso enfrenta presiones estructurales de mediano plazo:
+        </p>
+
+        <ul>
+            <li><strong>Déficit fiscal creciente:</strong> 5.9% del PIB en 2025, requiere financiamiento continuo</li>
+            <li><strong>Dependencia de flujos de capital:</strong> Inversión extranjera volátil en bonos gubernamentales</li>
+            <li><strong>Transición energética:</strong> Importación neta de petróleo presiona balanza comercial</li>
+            <li><strong>Demografía:</strong> Envejecimiento poblacional aumenta gasto social sin aumento proporcional de productividad</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p style="margin-bottom: 0;"><strong>🔍 Caso de Estudio:</strong> En 2022, un shock de USD fortaleza + Fed hiking cycle provocó 
+            depreciación del peso de 15% en 6 meses. Family offices con 100% de patrimonio en pesos perdieron $15M USD de poder 
+            adquisitivo internacional por cada $100M de patrimonio. Aquellos con diversificación en activos duros mitigaron pérdida en 60-80%.</p>
+        </div>
+
+        <h2>II. La Solución: Marco de Capital Duro</h2>
+
+        <h3>2.1 Definición de Capital Duro</h3>
+
+        <p>
+            Definimos <strong>capital duro</strong> como activos con las siguientes características verificables:
+        </p>
+
+        <ol>
+            <li><strong>Escasez absoluta o relativa:</strong> Supply limitado por naturaleza o protocolo, no por decisión política</li>
+            <li><strong>No-confiscabilidad:</strong> Difícil o imposible de expropiar unilateralmente por gobiernos</li>
+            <li><strong>Portabilidad:</strong> Puede ser movido transfronterizamente con costos razonables</li>
+            <li><strong>Verificabilidad:</strong> Autenticidad y cantidad pueden ser confirmadas independientemente</li>
+            <li><strong>Track record histórico:</strong> Ha preservado valor a través de regímenes monetarios anteriores</li>
+        </ol>
+
+        <p><strong>Activos que califican:</strong></p>
+        <ul>
+            <li>Oro físico y vaulted</li>
+            <li>Bitcoin (escasez programática verificable)</li>
+            <li>Real estate de alta demanda (con caveats de liquidez)</li>
+            <li>Commodities estratégicos (con caveats de storage)</li>
+        </ul>
+
+        <h3>2.2 Por Qué Bitcoin Emerge como Activo Institucional</h3>
+
+        <p>
+            Bitcoin presenta características únicas que lo posicionan como capital duro óptimo para el entorno actual:
+        </p>
+
+        <div class="data-point">
+            <span class="number">21M</span>
+            <span class="label">Supply máximo absoluto (hard cap programático)</span>
+        </div>
+
+        <p><strong>Ventajas sobre activos tradicionales:</strong></p>
+
+        <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
+            <thead style="background: var(--navy-primary); color: white;">
+                <tr>
+                    <th style="padding: 1rem; text-align: left;">Característica</th>
+                    <th style="padding: 1rem;">Oro</th>
+                    <th style="padding: 1rem;">Bitcoin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: var(--light-gray);">
+                    <td style="padding: 1rem;"><strong>Portabilidad</strong></td>
+                    <td style="padding: 1rem;">Costoso, lento</td>
+                    <td style="padding: 1rem;">Instantáneo, sin fricción</td>
+                </tr>
+                <tr>
+                    <td style="padding: 1rem;"><strong>Verificabilidad</strong></td>
+                    <td style="padding: 1rem;">Requiere ensayo</td>
+                    <td style="padding: 1rem;">Blockchain público verificable</td>
+                </tr>
+                <tr style="background: var(--light-gray);">
+                    <td style="padding: 1rem;"><strong>Divisibilidad</strong></td>
+                    <td style="padding: 1rem;">Limitada (barras, onzas)</td>
+                    <td style="padding: 1rem;">Infinita (satoshis)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 1rem;"><strong>Custodia</strong></td>
+                    <td style="padding: 1rem;">Bóvedas, seguridad física</td>
+                    <td style="padding: 1rem;">Multisig, self-custody posible</td>
+                </tr>
+                <tr style="background: var(--light-gray);">
+                    <td style="padding: 1rem;"><strong>Supply</strong></td>
+                    <td style="padding: 1rem;">~2% anual (minería)</td>
+                    <td style="padding: 1rem;">Decreciente, 0% después de 2140</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.3 Casos de Adopción Institucional</h3>
+
+        <p>
+            La tesis de Bitcoin como activo de tesorería corporativa ya está validada por empresas públicas:
+        </p>
+
+        <ul>
+            <li><strong>Strategy:</strong> 714,644 BTC (Feb 2026), +1,989% ROI desde anuncio agosto 2020</li>
+            <li><strong>Metaplanet (Japón):</strong> 35,102 BTC, empresa mediana ($55M market cap inicial) con +580% en 8 meses</li>
+            <li><strong>El Salvador:</strong> 7,559 BTC en reservas nacionales</li>
+        </ul>
+
+        <p>
+            <strong>Lección para family offices:</strong> No se requiere ser gigante. Metaplanet demostró que empresas medianas 
+            pueden implementar estrategia Bitcoin de manera conservadora con resultados excepcionales. Para family offices con 
+            $50M-$500M en AUM, una asignación del 5-10% representa balance adecuado entre preservación y upside potencial.
+        </p>
+
+        <h2>III. Implementación Práctica</h2>
+
+        <h3>3.1 Asignación Recomendada por Perfil</h3>
+
+        <div class="metadata">
+            <p><strong>Conservador ($50M-$100M AUM):</strong></p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Oro físico/vaulted: 10-15%</li>
+                <li>Bitcoin: 2-5%</li>
+                <li>Real estate internacional: 5-10%</li>
+                <li>Total capital duro: 17-30%</li>
+            </ul>
+        </div>
+
+        <div class="metadata">
+            <p><strong>Balanceado ($100M-$500M AUM):</strong></p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Oro físico/vaulted: 10-20%</li>
+                <li>Bitcoin: 5-10%</li>
+                <li>Real estate internacional: 10-15%</li>
+                <li>Total capital duro: 25-45%</li>
+            </ul>
+        </div>
+
+        <div class="metadata">
+            <p><strong>Agresivo (&gt;$500M AUM):</strong></p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Oro físico/vaulted: 15-25%</li>
+                <li>Bitcoin: 10-15%</li>
+                <li>Real estate internacional: 15-20%</li>
+                <li>Total capital duro: 40-60%</li>
+            </ul>
+        </div>
+
+        <h3>3.2 Vehículos de Implementación</h3>
+
+        <p><strong>Para Bitcoin:</strong></p>
+        <ol>
+            <li><strong>Auto-custodia con educación:</strong> ArcadiaB ofrece capacitación para family offices que quieren control total</li>
+            <li><strong>Multisig con ArcadiaB:</strong> Cliente controla 2 llaves, ArcadiaB 1 recovery</li>
+            <li><strong>Multisig multi-institucional:</strong> Para holdings &gt;$100M, distribución geográfica de llaves</li>
+        </ol>
+
+        <p><strong>Para Oro:</strong></p>
+        <ol>
+            <li><strong>Bóvedas internacionales:</strong> Brinks, Loomis (Suiza, Singapur)</li>
+            <li><strong>ETFs respaldados físicamente:</strong> IAU, GLD (con caveats de counterparty risk)</li>
+            <li><strong>Oro físico local:</strong> Solo para cantidades menores (&lt;$5M)</li>
+        </ol>
+
+        <h2>IV. Gestión de Riesgos</h2>
+
+        <h3>4.1 Riesgos de Bitcoin</h3>
+
+        <ul>
+            <li><strong>Volatilidad:</strong> Drawdowns del 50-80% en bear markets son normales</li>
+            <li><strong>Regulación:</strong> Claridad regulatoria aún evoluciona en México</li>
+            <li><strong>Custodia:</strong> Requiere procesos operativos robustos</li>
+            <li><strong>Tecnología:</strong> Curva de aprendizaje técnica para family office tradicional</li>
+        </ul>
+
+        <p><strong>Mitigación:</strong></p>
+        <ul>
+            <li>Asignación conservadora (2-10% total portfolio)</li>
+            <li>Dollar-cost averaging (compra mensual/trimestral)</li>
+            <li>Horizonte de inversión mínimo 4 años</li>
+            <li>Capacitación técnica con ArcadiaB</li>
+        </ul>
+
+        <h3>4.2 Consideraciones Fiscales (México)</h3>
+
+        <p>
+            Bitcoin es tratado como "activo virtual" bajo la Ley Fintech. Implicaciones:
+        </p>
+
+        <ul>
+            <li><strong>Compra/tenencia:</strong> No genera impuesto</li>
+            <li><strong>Venta:</strong> Ganancia de capital sujeta a ISR (tasa progresiva hasta 35%)</li>
+            <li><strong>Herencia:</strong> Tratamiento similar a otros activos financieros</li>
+            <li><strong>Declaración anual:</strong> Obligatoria si valor &gt;$500k MXN</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p style="margin-bottom: 0;"><strong>💡 Estrategia Fiscal:</strong> Para family offices, considerar estructurar holdings Bitcoin 
+            en vehículo corporativo (S.A. de C.V.) para aprovechar tasa corporativa del 30% vs. tasa personal progresiva hasta 35%. 
+            Consultar con asesor fiscal antes de implementar.</p>
+        </div>
+
+        <h2>V. Conclusión y Próximos Pasos</h2>
+
+        <p>
+            El entorno monetario actual presenta riesgos sin precedentes para family offices mexicanas que mantienen patrimonio 
+            predominantemente en pesos y activos denominados en pesos. La expansión M2 del 12%, tasas reales negativas después 
+            de impuestos, y presiones estructurales sobre el peso mexicano hacen imperativo considerar estrategias de capital duro.
+        </p>
+
+        <p>
+            Bitcoin, oro, y real estate internacional ofrecen características complementarias de preservación de capital. 
+            La evidencia empírica de adopción institucional global (Strategy, Metaplanet, El Salvador) valida la tesis de 
+            Bitcoin como activo de tesorería viable. Para family offices mexicanas, una asignación balanceada del 5-15% en 
+            capital duro puede proveer protección significativa contra erosión monetaria sin introducir volatilidad excesiva.
+        </p>
+
+        <div class="highlight-box">
+            <p style="margin-bottom: 0;"><strong>🚀 Próximos Pasos Recomendados:</strong></p>
+            <ol style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Evaluar exposición actual a devaluación monetaria</li>
+                <li>Consulta con ArcadiaB para diseño de asignación personalizada</li>
+                <li>Capacitación técnica en custodia Bitcoin (si aplica auto-custodia)</li>
+                <li>Implementación gradual vía dollar-cost averaging</li>
+                <li>Revisión trimestral de asignación y rebalanceo</li>
+            </ol>
+        </div>
+
+        <div style="background: var(--navy-primary); color: white; padding: 2rem; border-radius: 8px; margin: 3rem 0; text-align: center;">
+            <h3 style="color: var(--gold-accent); margin-top: 0;">¿Listo para proteger su patrimonio?</h3>
+            <p style="margin-bottom: 1.5rem;">
+                ArcadiaB ofrece consultas personalizadas para family offices mexicanas. Analizamos su situación específica 
+                y diseñamos estrategia de capital duro adaptada a su perfil de riesgo.
+            </p>
+            <a href="https://www.kapitalex.com/#/register?ref=FDQEXS1WD6LZ4IQ" style="display: inline-block; background: var(--gold-accent); color: var(--navy-primary); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600;">
+                Agendar Consulta →
+            </a>
+        </div>
+
+        <div class="footer-note">
+            <p>
+                <strong>Capital Duro</strong> | Con el apoyo de ArcadiaB y AsoBitcoinMX<br>
+                Este reporte es únicamente informativo y no constituye asesoría de inversión.
+            </p>
+            <p style="margin-top: 1rem;">
+                © 2026 Capital Duro | Todos los derechos reservados
+            </p>
+        </div>
     </div>
 </body>
 </html>

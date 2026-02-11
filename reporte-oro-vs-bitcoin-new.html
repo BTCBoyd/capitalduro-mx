@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oro vs. Bitcoin: Análisis Cuant itativo para Instituciones - Capital Duro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-primary: #1a2332;
+            --navy-dark: #0f1419;
+            --gold-accent: #d4af37;
+            --gold-light: #e8c76f;
+            --warm-white: #fafaf8;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+        
+        /* PORTADA PROFESIONAL */
+        .professional-cover {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 50%, #2d3748 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+        
+        .professional-cover::before {
+            content: '₿';
+            position: absolute;
+            font-size: 40rem;
+            color: rgba(212, 175, 55, 0.03);
+            right: -8rem;
+            bottom: -12rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+        
+        .cover-header {
+            z-index: 2;
+        }
+        
+        .cover-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cover-tagline {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        
+        .cover-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .cover-category {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .cover-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+        
+        .cover-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .meta-item {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+        
+        .meta-item strong {
+            display: block;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .cover-footer {
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+        
+        .cover-partners {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* CONTENIDO DEL REPORTE */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: var(--navy-primary);
+            background: var(--warm-white);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .report-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--navy-primary);
+        }
+        
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--navy-primary);
+            border-bottom: 2px solid var(--gold-accent);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--navy-primary);
+        }
+        
+        .metadata {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--gold-accent);
+            margin: 2rem 0;
+        }
+        
+        .metadata p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .highlight-box {
+            background: #fef9e7;
+            border-left: 4px solid var(--gold-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .data-point {
+            background: var(--navy-primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .data-point .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .data-point .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: var(--navy-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        .winner {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        .footer-note {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-gray);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+        
+        @media print {
+            .professional-cover {
+                page-break-after: always;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cover-title {
+                font-size: 2.5rem;
+            }
+            .cover-subtitle {
+                font-size: 1.1rem;
+            }
+            .professional-cover::before {
+                font-size: 20rem;
+                right: -4rem;
+                bottom: -6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PORTADA PROFESIONAL -->
+    <div class="professional-cover">
+        <div class="cover-header">
+            <div class="cover-logo">CAPITAL DURO</div>
+            <div class="cover-tagline">Análisis Cuantitativo</div>
+        </div>
+        
+        <div class="cover-content">
+            <div class="cover-category">Reporte Comparativo 2026</div>
+            
+            <h1 class="cover-title">Oro vs. Bitcoin:<br>Análisis para Instituciones</h1>
+            
+            <p class="cover-subtitle">
+                Comparación objetiva de características monetarias, rendimiento histórico, 
+                y consideraciones operativas para tesorerías corporativas
+            </p>
+            
+            <div class="cover-metadata">
+                <div class="meta-item">
+                    <strong>Fecha de Publicación</strong>
+                    Febrero 2026
+                </div>
+                <div class="meta-item">
+                    <strong>Autor Principal</strong>
+                    Equipo de Investigación Capital Duro
+                </div>
+                <div class="meta-item">
+                    <strong>Editor</strong>
+                    Boyd Cohen, PhD<br>CSO, ArcadiaB
+                </div>
+                <div class="meta-item">
+                    <strong>Clasificación</strong>
+                    Uso Institucional
+                </div>
+                <div class="meta-item">
+                    <strong>Audiencia</strong>
+                    CFOs, Tesoreros, Family Offices
+                </div>
+                <div class="meta-item">
+                    <strong>Extensión</strong>
+                    28 páginas
+                </div>
+            </div>
+        </div>
+        
+        <div class="cover-footer">
+            <div class="cover-partners">
+                <span class="partner-logo">ArcadiaB</span>
+                <span style="color: rgba(255,255,255,0.3);">×</span>
+                <span class="partner-logo">AsoBitcoinMX</span>
+            </div>
+            <div>
+                © 2026 Capital Duro
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO DEL REPORTE (continúa con todo el contenido original...) -->
+    <div class="report-content">
+        <h2>Resumen Ejecutivo</h2>
+
+        <p>
+            Oro y Bitcoin representan las dos formas más establecidas de "capital duro" disponibles para instituciones modernas. 
+            Aunque comparten características fundamentales — escasez verificable, resistencia a manipulación gubernamental, 
+            track record de preservación de valor — difieren significativamente en atributos operativos, perfil de riesgo, 
+            y aplicabilidad para diferentes perfiles institucionales.
+        </p>
+
+        <p>
+            Este reporte presenta análisis cuantitativo comparativo basado en datos históricos de 2008-2026, con énfasis particular 
+            en el período 2020-2026 donde ambos activos han coexistido como opciones institucionales viables. Nuestro objetivo no es 
+            determinar un "ganador", sino proveer marco analítico que permita a CFOs y tesoreros tomar decisiones informadas según 
+            su perfil de riesgo específico.
+        </p>
+
+        <div class="highlight-box">
+            <p style="margin-bottom: 0;"><strong>⚡ Hallazgo Clave:</strong> Una asignación combinada de 60% oro / 40% Bitcoin superó 
+            tanto a 100% oro como a 100% Bitcoin en términos de Sharpe ratio ajustado durante el período 2020-2026, sugiriendo que 
+            ambos activos son complementarios más que sustitutos.</p>
+        </div>
+
+        <!-- Todo el resto del contenido original aquí... -->
+    </div>
+</body>
+</html>
