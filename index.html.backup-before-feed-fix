@@ -952,69 +952,85 @@
       </div>
     </div>
 
-    <!-- Featured: Marco Estratégico Report -->
-    <a href="/reporte-marco-estrategico.html" class="article-card featured">
+    <!-- Featured article -->
+    <a href="/analisis/expansion-m2-mexico" class="article-card featured">
       <div class="featured-label">Destacado</div>
       <div class="article-meta">
-        <span class="article-type report">Reporte</span>
-        <span class="article-date">Feb 2026</span>
-        <span class="article-read">· 42 páginas</span>
-      </div>
-      <div class="article-title">Marco Estratégico de Capital Duro: Bitcoin como Activo de Reserva</div>
-      <div class="article-excerpt">Análisis integral de Bitcoin como activo de tesorería corporativa en México. Incluye marco regulatorio ASOFOM, estrategias de implementación, y casos de estudio institucionales.</div>
-      <div class="article-tags">
-        <span class="article-tag">#Bitcoin</span>
-        <span class="article-tag">#Tesorería</span>
-        <span class="article-tag">#Regulación</span>
-      </div>
-    </a>
-
-    <!-- Report: Bitcoin Lending -->
-    <a href="/reporte-bitcoin-lending.html" class="article-card">
-      <div class="article-meta">
-        <span class="article-type report">Reporte</span>
-        <span class="article-date">Feb 2026</span>
-        <span class="article-read">· 22 páginas</span>
-      </div>
-      <div class="article-title">Bitcoin Lending para Family Offices: Oportunidad de Rendimiento</div>
-      <div class="article-excerpt">Préstamos respaldados por Bitcoin ofrecen rendimientos de 12-18% anual para family offices mexicanos. Análisis de riesgo, marco legal, y estrategias de implementación.</div>
-      <div class="article-tags">
-        <span class="article-tag">#Lending</span>
-        <span class="article-tag">#Family Offices</span>
-      </div>
-    </a>
-
-    <!-- Report: Bitcoin vs Real Estate -->
-    <a href="/reporte-bitcoin-vs-real-estate.html" class="article-card">
-      <div class="article-meta">
-        <span class="article-type report">Reporte</span>
-        <span class="article-date">Feb 2026</span>
-        <span class="article-read">· 26 páginas</span>
-      </div>
-      <div class="article-title">Bitcoin vs Bienes Raíces + Modelos Híbridos de Inversión</div>
-      <div class="article-excerpt">Comparativa cuantitativa entre Bitcoin y real estate como activos de preservación. Incluye estrategias híbridas: usar propiedad como colateral para adquirir BTC.</div>
-      <div class="article-tags">
-        <span class="article-tag">#Bitcoin</span>
-        <span class="article-tag">#Real Estate</span>
-        <span class="article-tag">#Modelos Híbridos</span>
-      </div>
-    </a>
-
-    <!-- Guest Column: Perspectivas Invitadas -->
-    <a href="/perspectivas/bienes-raices-bitcoin-convergencia.html" class="article-card">
-      <div class="article-meta">
-        <span class="article-type guest">Perspectiva Invitada</span>
-        <span class="article-date">Feb 2026</span>
+        <span class="article-type analysis">Análisis</span>
+        <span class="article-date">15 Feb 2026</span>
         <span class="article-read">· 8 min lectura</span>
       </div>
-      <div class="article-title">Bienes Raíces + Bitcoin: Convergencia Inevitable</div>
-      <div class="article-excerpt">Análisis de cómo desarrolladores inmobiliarios pueden financiar proyectos usando Bitcoin como colateral, preservando exposición al activo más escaso mientras ejecutan en el mundo físico.</div>
+      <div class="article-title">Expansión M2 en México: Implicaciones para Tesorería Corporativa</div>
+      <div class="article-excerpt">El Banco de México reportó expansión M2 de 12.3% año sobre año. Analizamos las implicaciones directas para corporaciones mexicanas con tesorerías denominadas en pesos y por qué las estrategias de cobertura tradicionales son cada vez más insuficientes.</div>
       <div class="article-tags">
-        <span class="article-tag">#Bitcoin</span>
-        <span class="article-tag">#Real Estate</span>
+        <span class="article-tag">#Macro</span>
+        <span class="article-tag">#Tesorería</span>
+        <span class="article-tag">#Banxico</span>
       </div>
     </a>
+
+    <!-- Regular articles -->
+    <a href="/analisis/empresas-bitcoin-tesoreria" class="article-card">
+      <div class="article-meta">
+        <span class="article-type analysis">Análisis</span>
+        <span class="article-date">12 Feb 2026</span>
+        <span class="article-read">· 12 min lectura</span>
+      </div>
+      <div class="article-title">Por Qué 18 Empresas Públicas Globales Mantienen Bitcoin en Tesorería</div>
+      <div class="article-excerpt">Desde Strategy en 2020, una lista creciente de empresas públicas ha adoptado Bitcoin como activo de reserva. Lecciones y modelos aplicables al contexto mexicano.</div>
+      <div class="article-tags">
+        <span class="article-tag">#Bitcoin</span>
+        <span class="article-tag">#Casos</span>
+      </div>
+    </a>
+
+    <a href="/analisis/oro-vs-bitcoin-2026" class="article-card">
+      <div class="article-meta">
+        <span class="article-type report">Reporte</span>
+        <span class="article-date">8 Feb 2026</span>
+        <span class="article-read">· 15 min lectura</span>
+      </div>
+      <div class="article-title">Oro vs. Bitcoin: Análisis Cuantitativo para Instituciones 2026</div>
+      <div class="article-excerpt">Comparamos portabilidad, divisibilidad, verificabilidad, y retornos ajustados por riesgo. Las métricas que realmente importan a treasurers institucionales.</div>
+      <div class="article-tags">
+        <span class="article-tag">#Bitcoin</span>
+        <span class="article-tag">#Oro</span>
+      </div>
+    </a>
+
+    <a href="/analisis/modelos-hibridos" class="article-card">
+      <div class="article-meta">
+        <span class="article-type analysis">Análisis</span>
+        <span class="article-date">5 Feb 2026</span>
+        <span class="article-read">· 10 min lectura</span>
+      </div>
+      <div class="article-title">Modelos Híbridos: Bienes Raíces + Bitcoin como Estrategia de Preservación</div>
+      <div class="article-excerpt">Cómo family offices mexicanas están combinando activos inmobiliarios con exposición a Bitcoin para crear carteras resistentes a la devaluación.</div>
+      <div class="article-tags">
+        <span class="article-tag">#Inmobiliario</span>
+        <span class="article-tag">#Bitcoin</span>
+        <span class="article-tag">#Family Office</span>
+      </div>
+    </a>
+
+    <a href="/reportes/marco-estrategico-2026" class="article-card">
+      <div class="article-meta">
+        <span class="article-type report">Reporte</span>
+        <span class="article-date">1 Feb 2026</span>
+        <span class="article-read">· 42 páginas</span>
+      </div>
+      <div class="article-title">Marco Estratégico de Capital Duro para Family Offices Mexicanas 2026</div>
+      <div class="article-excerpt">Reporte completo con análisis de devaluación del peso, modelos de asignación de activos duros, comparativa Bitcoin vs. oro vs. bienes raíces, y framework de implementación paso a paso.</div>
+      <div class="article-tags">
+        <span class="article-tag">#Framework</span>
+        <span class="article-tag">#Family Office</span>
+        <span class="article-tag">#PDF</span>
+      </div>
+    </a>
+
+    <button class="load-more">Cargar más publicaciones →</button>
   </div>
+
   <!-- RIGHT: Sidebar -->
   <aside class="sidebar">
 
