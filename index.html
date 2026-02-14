@@ -434,6 +434,60 @@
     font-weight: 500;
   }
 
+  /* Editorial featured card */
+  .editorial-featured {
+    background: linear-gradient(135deg, rgba(200, 168, 78, 0.08) 0%, rgba(20, 23, 32, 0.95) 100%);
+    border: 1px solid rgba(200, 168, 78, 0.25);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .editorial-featured:hover {
+    border-color: rgba(200, 168, 78, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .editorial-label {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    background: rgba(200, 168, 78, 0.1);
+    border: 1px solid rgba(200, 168, 78, 0.25);
+    padding: 0.35rem 0.75rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+  }
+
+  .editorial-featured .article-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial-featured .article-excerpt {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .editorial-byline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+  }
+
+  .editorial-byline strong {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
   /* Featured article (first in feed) */
   .article-card.featured {
     padding: 1.5rem;
@@ -950,6 +1004,19 @@
 
   <!-- LEFT: Content Feed -->
   <div class="feed">
+    
+    <!-- EDITORIAL FEATURED -->
+    <a href="/carta-del-editor.html" class="editorial-featured">
+      <div class="editorial-label">✍️ Carta del Editor · Número Inaugural</div>
+      <div class="article-title">El Dinero Más Duro Encuentra a las Máquinas Más Inteligentes</div>
+      <div class="article-excerpt">
+        Bienvenidos a Capital Duro. Una plataforma para pensamiento de grado institucional sobre dinero sólido, estrategia de tesorería en Bitcoin, y el catalizador más importante para la adopción de Bitcoin en la próxima década: el surgimiento de la economía agéntica.
+      </div>
+      <div class="editorial-byline">
+        <strong>Boyd Cohen, Ph.D.</strong> · Editor General, Capital Duro · 14 de febrero, 2026
+      </div>
+    </a>
+    
     <div class="feed-header">
       <h2>Lo Último</h2>
       <div class="feed-tabs">
